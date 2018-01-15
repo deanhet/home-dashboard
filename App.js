@@ -4,13 +4,17 @@ import {
   View
 } from 'react-native'
 import HueSwitches from './components/hueSwitches/'
+import HueTemps from './components/hueTemps/'
 
 export default class App extends Component<{}> {
 
   render() {
     return (
       <View style={styles.container}>
-        <HueSwitches />
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <HueSwitches />
+          <HueTemps />
+        </View>
       </View>
     )
   }

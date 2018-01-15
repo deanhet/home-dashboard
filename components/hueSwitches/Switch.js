@@ -1,16 +1,20 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import lightSwitch from '../../actions/hue'
 
 export default class Switch extends PureComponent {
 
+  static propTypes = {
+    roomLabel: PropTypes.string
+  }
+  
   state = {
     isActive: false
   }
 
   toggleActive = async () => {
     const { roomLabel } = this.props
-    console.log(roomLabel)
     const lightToggle = await lightSwitch(roomLabel)
     this.setState({
       isActive: lightToggle
@@ -33,6 +37,7 @@ export default class Switch extends PureComponent {
 
 const style = StyleSheet.create({
   container: {
+    borderRadius:    4,
     alignItems:      'center', 
     justifyContent:  'center', 
     margin:          15, 

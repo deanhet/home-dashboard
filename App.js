@@ -6,6 +6,7 @@ import {
 import HueSwitches from './components/hueSwitches/'
 import HueTemps from './components/hueTemps/'
 import Clock from './components/clock'
+import Spotify from './components/spotify/'
 
 export default class App extends Component<{}> {
 
@@ -17,6 +18,7 @@ export default class App extends Component<{}> {
           <HueSwitches />
           <HueTemps />
         </View>
+        <Spotify />
       </View>
     )
   }
@@ -26,6 +28,7 @@ export default class App extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex:            1,
+    flexWrap:        'wrap',
     justifyContent:  'center',
     alignItems:      'center',
     backgroundColor: 'black'

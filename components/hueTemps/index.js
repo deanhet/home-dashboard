@@ -43,7 +43,7 @@ export default class HueTemps extends PureComponent {
     const { hallwayTemp, kitchenTemp } = this.state
     const averageTemp = ((hallwayTemp + kitchenTemp) / 2).toFixed(2)
     return (
-      <View style={{ paddingTop: 15, flex: 1 }}>
+      <View style={{ alignItems: 'flex-end', padding: 15, flex: 1 }}>
         <View style={style.row}>
           <Icon name={this.thermometerIcon(averageTemp)} style={[style.icon, { fontSize: 50 }]} />
           <View>

@@ -25,7 +25,7 @@ export default class Clock extends PureComponent {
 
   render() {
     return (
-      <View style={{ padding: 15, alignItems: 'center' }}>
+      <View style={{ flex: 1, padding: 15 }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Icon name="clock-o" style={{ fontSize: 40, color: 'grey', paddingRight: 10 }}/>
           <Text style={style.text}>{this.state.time.toLowerCase()}</Text>

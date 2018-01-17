@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { lightSwitch } from '../../actions/hue'
@@ -23,11 +23,13 @@ export default class Switch extends PureComponent {
 
   render() {
     const { isActive } = this.state
-    const { roomLabel } = this.props
+    const { roomLabel, labelPosition } = this.props
+    const { width, height } = this.props.style
     return (
-      <TouchableOpacity onPress={this.toggleActive} style={{ flex: 1 }}>
-        <View style={[{ opacity: isActive ? 1 : 0.5 }, style.container]}>
-          <Text style={{ fontSize: 48, color: 'white' }}>{roomLabel}</Text>
+      <TouchableOpacity onPress={this.toggleActive} style={[{position: 'absolute'}, styles.container, this.props.style]}>
+        <View style={[styles.room, { opacity: isActive ? 1 : 0.5, width: width, height: height }]}>
+          {this.props.children}
+          <Text style={[styles.text, labelPosition && [{ position: 'absolute' }, labelPosition]]}>{roomLabel}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -35,15 +37,22 @@ export default class Switch extends PureComponent {
 
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    borderRadius:    4,
-    alignItems:      'center', 
-    justifyContent:  'center', 
-    margin:          15, 
-    padding:         15, 
-    borderWidth:     1, 
-    flex:            1, 
-    backgroundColor: 'orange' 
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  room: {
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'grey'
+  },
+  text: {
+    zIndex: 2,
+    fontSize: 20, 
+    color: 'white',
+    fontWeight: 'bold'
   }
 })

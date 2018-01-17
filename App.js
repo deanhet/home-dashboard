@@ -15,7 +15,9 @@ export default class App extends Component<{}> {
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Clock />
-          <HueSwitches />
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            <HueSwitches />
+          </View>
           <HueTemps />
         </View>
         <Spotify />

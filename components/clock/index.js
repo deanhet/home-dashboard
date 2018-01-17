@@ -22,10 +22,18 @@ export default class Clock extends PureComponent {
 
   render() {
     return (
-      <View style={{ flex: 1, padding: 15, alignItems: 'center' }}>
-        <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 48 }}>{this.state.time.toLowerCase()}</Text>
+      <View style={{ padding: 15, alignItems: 'center' }}>
+        <Text style={style.text}>{this.state.time.toLowerCase()}</Text>
       </View>
     )
   }
 
 }
+
+const style = StyleSheet.create({
+  text: {
+    color:      'white',
+    fontWeight: 'bold',
+    fontSize:   48
+  }
+})

@@ -5,6 +5,7 @@ import {
 } from 'react-native'
 import HueSwitches from './components/hueSwitches/'
 import HueTemps from './components/hueTemps/'
+import Clock from './components/clock'
 
 export default class App extends Component<{}> {
 
@@ -12,6 +13,7 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
+          <Clock />
           <HueSwitches />
           <HueTemps />
         </View>

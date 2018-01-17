@@ -48,7 +48,7 @@ export default class HueTemps extends PureComponent {
           <Icon name={this.thermometerIcon(averageTemp)} style={[style.icon, { fontSize: 50 }]} />
           <View>
             <Text style={[style.title, {fontSize: 50}]}>{averageTemp}℃</Text>
-            <Text style={[style.subtitle, { fontSize: 30, marginTop: -15 }]}>Home</Text>
+            <Text style={[style.subtitle, { fontSize: 30, marginTop: -10 }]}>Home</Text>
           </View>
           <View style={{ paddingLeft: 10 }}>
             <View style={style.row}>
@@ -89,9 +89,7 @@ const style = StyleSheet.create({
     paddingRight: 5
   },
   subtitle: {
-    marginTop:   -2,
     color:       'grey',
-    fontSize:    13,
-    paddingLeft: 5
+    fontSize:    13
   }
 })

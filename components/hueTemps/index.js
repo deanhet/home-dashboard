@@ -41,20 +41,30 @@ export default class HueTemps extends PureComponent {
 
   render() {
     const { hallwayTemp, kitchenTemp } = this.state
+    const averageTemp = ((hallwayTemp + kitchenTemp) / 2).toFixed(2)
     return (
       <View style={{ paddingTop: 15, flex: 1 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Icon name={this.thermometerIcon(hallwayTemp)} style={style.icon} />
+        <View style={style.row}>
+          <Icon name={this.thermometerIcon(averageTemp)} style={[style.icon, { fontSize: 50 }]} />
           <View>
-            <Text style={style.title}>{hallwayTemp}℃</Text>
-            <Text style={style.subtitle}>Hallway</Text>
+            <Text style={[style.title, {fontSize: 50}]}>{averageTemp}℃</Text>
+            <Text style={[style.subtitle, { fontSize: 30, marginTop: -15 }]}>Home</Text>
           </View>
-        </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <Icon name={this.thermometerIcon(kitchenTemp)} style={style.icon} />
-          <View>
-            <Text style={style.title}>{kitchenTemp}℃</Text>
-            <Text style={style.subtitle}>Kitchen</Text>
+          <View style={{ paddingLeft: 10 }}>
+            <View style={style.row}>
+              <Icon name={this.thermometerIcon(hallwayTemp)} style={style.icon} />
+              <View>
+                <Text style={style.title}>{hallwayTemp}℃</Text>
+                <Text style={style.subtitle}>Hallway</Text>
+              </View>
+            </View>
+            <View style={style.row}>
+              <Icon name={this.thermometerIcon(kitchenTemp)} style={style.icon} />
+              <View>
+                <Text style={style.title}>{kitchenTemp}℃</Text>
+                <Text style={style.subtitle}>Kitchen</Text>
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -67,17 +77,21 @@ const style = StyleSheet.create({
   title: {
     fontWeight:  'bold',
     color:       'white',
-    fontSize:    48
+    fontSize:    20
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems:    'center'
   },
   icon: {
     color:        'grey',
-    fontSize:     40,
+    fontSize:     20,
     paddingRight: 5
   },
   subtitle: {
-    marginTop:   -10,
+    marginTop:   -2,
     color:       'grey',
-    fontSize:    24,
+    fontSize:    13,
     paddingLeft: 5
   }
 })

@@ -7,8 +7,9 @@ import HueSwitches from './components/hueSwitches/'
 import HueTemps from './components/hueTemps/'
 import Clock from './components/clock'
 import Spotify from './components/spotify/'
+import MealPlan from './components/mealplan'
 
-export default class App extends Component<{}> {
+export default class App extends Component {
 
   render() {
     return (
@@ -18,7 +19,10 @@ export default class App extends Component<{}> {
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <HueSwitches />
           </View>
-          <HueTemps />
+          <View style={{ flex: 1 }}>
+            <HueTemps />
+            <MealPlan />
+          </View>
         </View>
         <Spotify />
       </View>

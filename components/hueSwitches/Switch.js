@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { lightSwitch } from '../../actions/hue'
@@ -6,7 +6,10 @@ import { lightSwitch } from '../../actions/hue'
 export default class Switch extends PureComponent {
 
   static propTypes = {
-    roomLabel: PropTypes.string
+    roomLabel:     PropTypes.string,
+    labelPosition: PropTypes.object,
+    style:         PropTypes.object,
+    children:      PropTypes.any
   }
   
   state = {
@@ -26,10 +29,16 @@ export default class Switch extends PureComponent {
     const { roomLabel, labelPosition } = this.props
     const { width, height } = this.props.style
     return (
-      <TouchableOpacity onPress={this.toggleActive} style={[{position: 'absolute'}, styles.container, this.props.style]}>
+      <TouchableOpacity 
+        onPress={this.toggleActive} 
+        style={[{position: 'absolute'}, styles.container, this.props.style]}>
         <View style={[styles.room, { opacity: isActive ? 1 : 0.5, width: width, height: height }]}>
           {this.props.children}
-          <Text style={[styles.text, labelPosition && [{ position: 'absolute' }, labelPosition]]}>{roomLabel}</Text>
+          <Text 
+            style={[styles.text, labelPosition && [{ position: 'absolute' }, labelPosition]]}
+          >
+            {roomLabel}
+          </Text>
         </View>
       </TouchableOpacity>
     )
@@ -39,20 +48,20 @@ export default class Switch extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute',
-    alignItems: 'center',
+    position:       'absolute',
+    alignItems:     'center',
     justifyContent: 'center'
   },
   room: {
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderWidth:     1,
+    alignItems:      'center',
+    justifyContent:  'center',
     backgroundColor: 'grey'
   },
   text: {
-    zIndex: 2,
-    fontSize: 20, 
-    color: 'white',
+    zIndex:     2,
+    fontSize:   20, 
+    color:      'white',
     fontWeight: 'bold'
   }
 })

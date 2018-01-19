@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View, TextInput, Text, TouchableOpacity, FlatList, AsyncStorage } from 'react-native'
+import { View, TextInput, StyleSheet, FlatList, AsyncStorage } from 'react-native'
 import Meal from './Meal'
 
 export default class AddMeals extends PureComponent {
@@ -44,16 +44,7 @@ export default class AddMeals extends PureComponent {
           value={this.state.mealInput}
           onChangeText={(text) => this.setState({ mealInput: text })}
           onSubmitEditing={this.onSubmit}
-          style={{ 
-            height:               50,
-            padding:              5,
-            fontSize:             30,
-            alignItems:           'center',
-            justifyContent:       'center',
-            color:                'white',
-            borderBottomWidth:    1,
-            borderColor:          'white'
-          }}
+          style={style.textInput}
         />
         <FlatList
           data={this.state.meals}
@@ -66,3 +57,16 @@ export default class AddMeals extends PureComponent {
   }
 
 }
+
+const style = StyleSheet.create({
+  textInput: { 
+    height:               50,
+    padding:              5,
+    fontSize:             30,
+    alignItems:           'center',
+    justifyContent:       'center',
+    color:                'white',
+    borderBottomWidth:    1,
+    borderColor:          'white'
+  }
+})

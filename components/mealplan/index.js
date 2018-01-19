@@ -24,13 +24,7 @@ export default class MealPlan extends PureComponent {
       { day: 'Wednesday', meal: 'Curry' }
     ]
     return (
-      <View style={{ 
-        backgroundColor: 'rgba(50,50,50,0.6)',
-        maxHeight:       400,
-        padding:         15,
-        margin:          15,
-        overflow:        'hidden'
-      }}>
+      <View style={style.container}>
         <TouchableOpacity onPress={this.flipCard}>
           <Text style={{ color: 'white', fontSize: 20 }}>Flip</Text>
         </TouchableOpacity>
@@ -40,6 +34,7 @@ export default class MealPlan extends PureComponent {
         >
           <FlatList
             data={data}
+            style={{ marginTop: 15, marginBottom: 15 }}
             renderItem={({item}) => <MealDay data={item} />}
             keyExtractor={this.keyExtractor}
           />
@@ -50,3 +45,13 @@ export default class MealPlan extends PureComponent {
   }
 
 }
+
+const style = StyleSheet.create({
+  container: { 
+    backgroundColor: 'rgba(50,50,50,0.6)',
+    maxHeight:       400,
+    padding:         15,
+    margin:          15,
+    overflow:        'hidden'
+  }
+})

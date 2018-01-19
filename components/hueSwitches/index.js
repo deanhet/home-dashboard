@@ -6,7 +6,7 @@ export default class HueSwitches extends PureComponent {
 
   render() {
     return (
-      <View style={{ justifyContent: 'center', alignSelf: 'stretch', height: 350, width: 350 }}>
+      <View style={style.container}>
         <Switch 
           style={{ left: 50, top: 0 }} 
           roomLabel="Hallway" 
@@ -35,6 +35,13 @@ export default class HueSwitches extends PureComponent {
 } 
 
 const style = StyleSheet.create({
+  container: {
+    marginLeft:     -15, 
+    justifyContent: 'center', 
+    alignSelf:      'stretch', 
+    height:         350, 
+    width:          350
+  },
   hallway: {
     backgroundColor: 'grey',
     position:        'absolute'

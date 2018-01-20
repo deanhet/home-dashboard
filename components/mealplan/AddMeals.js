@@ -44,6 +44,8 @@ export default class AddMeals extends PureComponent {
           value={this.state.mealInput}
           onChangeText={(text) => this.setState({ mealInput: text })}
           onSubmitEditing={this.onSubmit}
+          placeholderTextColor="grey"
+          autoFocus={true}
           style={style.textInput}
         />
         <FlatList

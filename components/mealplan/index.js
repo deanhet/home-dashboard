@@ -1,11 +1,16 @@
 import React, { PureComponent } from 'react'
-import { TouchableOpacity, View, Text, StyleSheet, FlatList } from 'react-native'
+import { Animated, Easing, TouchableOpacity, View, StyleSheet, FlatList } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import FlipCard from '../app/FlipCard'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
+const AnimatedIcon = Animated.createAnimatedComponent(Icon)
+
 export default class MealPlan extends PureComponent {
   
+  iconRotation = new Animated.Value(0)
+
   state = {
     showDays: true
   }
@@ -13,6 +18,12 @@ export default class MealPlan extends PureComponent {
   keyExtractor = (item, index) => index
 
   flipCard = () => {
+    Animated.timing(this.iconRotation, {
+      toValue:         Number(this.state.showDays),
+      duration:        400,
+      easing:          Easing.elastic(2),
+      useNativeDriver: true
+    }).start()
     this.setState({ showDays: !this.state.showDays })
   }
 
@@ -23,10 +34,17 @@ export default class MealPlan extends PureComponent {
       { day: 'Tuesday', meal: 'Beef' },
       { day: 'Wednesday', meal: 'Curry' }
     ]
+    const rotateIconValue = this.iconRotation.interpolate({
+      inputRange:  [0, 1],
+      outputRange: ['45deg', '0deg']      
+    })
     return (
       <View style={style.container}>
         <TouchableOpacity onPress={this.flipCard}>
-          <Text style={{ color: 'white', fontSize: 20 }}>Flip</Text>
+          <AnimatedIcon 
+            name="clear" 
+            style={[style.icon, {transform: [{ rotate: rotateIconValue }]}]}
+          />
         </TouchableOpacity>
         <FlipCard 
           shouldFlip={this.state.showDays}
@@ -53,5 +71,12 @@ const style = StyleSheet.create({
     padding:         15,
     margin:          15,
     overflow:        'hidden'
+  },
+  icon: {
+    alignSelf: 'flex-end',
+    height:    30,
+    width:     30,
+    color:     'white',
+    fontSize:  30
   }
 })

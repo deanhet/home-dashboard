@@ -1,63 +1,49 @@
 import React, { PureComponent } from 'react'
-import { Animated, Easing, TouchableOpacity, View, StyleSheet, FlatList } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import FlipCard from '../app/FlipCard'
+import PropTypes from 'prop-types'
+import { View, StyleSheet, FlatList, AsyncStorage } from 'react-native'
+import { Gateway } from 'react-gateway'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
-const AnimatedIcon = Animated.createAnimatedComponent(Icon)
-
 export default class MealPlan extends PureComponent {
   
-  iconRotation = new Animated.Value(0)
-
   state = {
-    showDays: true
+    activeDay: null,
+    data:      null
+  }
+
+  async componentDidMount() {
+    // TODO: make action
+    const mealDays = await AsyncStorage.getItem('@hd:mealDays')
+    if (!mealDays) {
+      const templateDays = [
+        { day: 'Sunday', meal: null },
+        { day: 'Monday', meal: null },
+        { day: 'Tuesday', meal: null },
+        { day: 'Wednesday', meal: null },
+        { day: 'Thursday', meal: null },
+        { day: 'Friday', meal: null },
+        { day: 'Saturday', meal: null }
+      ]
+      await AsyncStorage.setItem('@hd:mealDays', JSON.stringify(templateDays))
+    }
+    this.setState({ data: JSON.parse(mealDays) })
   }
 
   keyExtractor = (item, index) => index
 
-  flipCard = () => {
-    Animated.timing(this.iconRotation, {
-      toValue:         Number(this.state.showDays),
-      duration:        400,
-      easing:          Easing.elastic(2),
-      useNativeDriver: true
-    }).start()
-    this.setState({ showDays: !this.state.showDays })
-  }
-
   render() {
-    const data = [
-      { day: 'Sunday', meal: 'Steak' },
-      { day: 'Monday', meal: 'Chicken' },
-      { day: 'Tuesday', meal: 'Beef' },
-      { day: 'Wednesday', meal: 'Curry' }
-    ]
-    const rotateIconValue = this.iconRotation.interpolate({
-      inputRange:  [0, 1],
-      outputRange: ['45deg', '0deg']      
-    })
+    const { activeDay, data } = this.state
     return (
       <View style={style.container}>
-        <TouchableOpacity onPress={this.flipCard}>
-          <AnimatedIcon 
-            name="clear" 
-            style={[style.icon, {transform: [{ rotate: rotateIconValue }]}]}
-          />
-        </TouchableOpacity>
-        <FlipCard 
-          shouldFlip={this.state.showDays}
-          style={{ width: '100%', height: '100%' }}
-        >
-          <FlatList
-            data={data}
-            style={{ marginTop: 15, marginBottom: 15 }}
-            renderItem={({item}) => <MealDay data={item} />}
-            keyExtractor={this.keyExtractor}
-          />
-          <AddMeals />
-        </FlipCard>
+        <FlatList
+          data={data}
+          renderItem={({item}) => <MealDay data={item} />}
+          keyExtractor={this.keyExtractor}
+        />
+        <Gateway into="modal">
+          <AddMeals activeDay={activeDay} />
+        </Gateway>
       </View>
     )
   }

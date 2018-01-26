@@ -16,7 +16,7 @@ export default class Meal extends PureComponent {
       <View style={style.container}>
         <Text style={style.text}>{data}</Text>
         <TouchableOpacity onPress={() => { onDelete(data) }}>
-          <Icon style={style.icon} name="clear" />
+          <Icon style={style.icon} name="delete" />
         </TouchableOpacity>
       </View>
     )

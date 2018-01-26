@@ -10,6 +10,7 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "react": "16.2.0",
+    "react-gateway": "^3.0.0",
     "react-native": "0.52.0",
     "react-native-vector-icons": "^4.5.0"
   },

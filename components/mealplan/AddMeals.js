@@ -38,7 +38,7 @@ export default class AddMeals extends PureComponent {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={style.container}>
         <TextInput
           placeholder="Add New Meal"
           value={this.state.mealInput}
@@ -61,6 +61,13 @@ export default class AddMeals extends PureComponent {
 }
 
 const style = StyleSheet.create({
+  container: { 
+    flex:            1, 
+    height:          300, 
+    width:           300, 
+    backgroundColor: 'rgb(58,58,58)', 
+    padding:         15 
+  },
   textInput: { 
     height:               50,
     padding:              5,

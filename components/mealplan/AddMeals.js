@@ -1,40 +1,28 @@
 import React, { PureComponent } from 'react'
-import { View, TextInput, StyleSheet, FlatList, AsyncStorage } from 'react-native'
+import { View, TextInput, StyleSheet, FlatList } from 'react-native'
 import Meal from './Meal'
 
 export default class AddMeals extends PureComponent {
 
   state = {
-    mealInput: null,
-    meals:     null
-  }
-
-  async componentDidMount() {
-    const meals = await AsyncStorage.getItem('@hd:meals')
-    if (!meals) {
-      await AsyncStorage.setItem('@hd:meals', JSON.stringify([]))
-    }
-    this.setState({ meals: JSON.parse(meals) })
+    mealInput: null
   }
 
   keyExtractor = (item, index) => index
 
-  onSubmit = async () => {
-    const updatedMeals = [this.state.mealInput, ... this.state.meals]
-    await AsyncStorage.setItem('@hd:meals', JSON.stringify(updatedMeals))
+  onSubmit = () => {
+    this.props.addMeal(this.state.mealInput)
     this.setState({
-      mealInput: null,
-      meals:     updatedMeals 
+      mealInput: null
     })
   }
 
-  deleteMeal = async (mealToDelete) => {
-    // TODO: Should live in the reducer
-    const updatedMeals = this.state.meals.filter((meal) => meal !== mealToDelete)
-    await AsyncStorage.setItem('@hd:meals', JSON.stringify(updatedMeals))
-    this.setState({
-      meals: updatedMeals
-    })
+  deleteMeal = (mealToDelete) => {
+    this.props.deleteMeal(mealToDelete)
+  }
+
+  addMealToDay = (mealToAdd) => {
+    this.props.addMealToDay(mealToAdd)
   }
 
   render() {
@@ -50,9 +38,13 @@ export default class AddMeals extends PureComponent {
           style={style.textInput}
         />
         <FlatList
-          data={this.state.meals}
+          data={this.props.meals}
           style={{ marginTop: 15, marginBottom: 15 }}
-          renderItem={({item}) => <Meal data={item} onDelete={this.deleteMeal} />}
+          renderItem={({item}) => <Meal 
+            data={item} 
+            onDelete={this.deleteMeal}
+            onMealSelect={this.addMealToDay}
+          />}
           keyExtractor={this.keyExtractor}        
         />
       </View>

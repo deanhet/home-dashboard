@@ -11,10 +11,12 @@ export default class Meal extends PureComponent {
   }
 
   render() {
-    const { data, onDelete } = this.props
+    const { data, onDelete, onMealSelect } = this.props
     return (
       <View style={style.container}>
-        <Text style={style.text}>{data}</Text>
+        <TouchableOpacity onPress={() => { onMealSelect(data) }} style={{ flex: 1 }}>
+          <Text style={style.text}>{data}</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => { onDelete(data) }}>
           <Icon style={style.icon} name="delete" />
         </TouchableOpacity>

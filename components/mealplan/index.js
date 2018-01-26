@@ -1,54 +1,60 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { View, StyleSheet, FlatList, AsyncStorage } from 'react-native'
+import { View, StyleSheet, FlatList } from 'react-native'
 import { Gateway } from 'react-gateway'
+import { connect } from 'react-redux'
+import { addMeal, deleteMeal, selectMealForDay } from '../../state/actions/meals'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
-export default class MealPlan extends PureComponent {
+export class MealPlan extends PureComponent {
   
-  state = {
-    activeDay: null,
-    data:      null
+  keyExtractor = (item, index) => item.day
+
+  handleAddMeal = (mealName) => {
+    this.props.dispatch(addMeal(mealName))
   }
 
-  async componentDidMount() {
-    // TODO: make action
-    const mealDays = await AsyncStorage.getItem('@hd:mealDays')
-    if (!mealDays) {
-      const templateDays = [
-        { day: 'Sunday', meal: null },
-        { day: 'Monday', meal: null },
-        { day: 'Tuesday', meal: null },
-        { day: 'Wednesday', meal: null },
-        { day: 'Thursday', meal: null },
-        { day: 'Friday', meal: null },
-        { day: 'Saturday', meal: null }
-      ]
-      await AsyncStorage.setItem('@hd:mealDays', JSON.stringify(templateDays))
-    }
-    this.setState({ data: JSON.parse(mealDays) })
+  handleDeleteMeal = (mealName) => {
+    this.props.dispatch(deleteMeal(mealName))
   }
 
-  keyExtractor = (item, index) => index
+  handleSelectMealForDay = (mealName) => {
+    this.props.dispatch(selectMealForDay(mealName))
+  }
 
   render() {
-    const { activeDay, data } = this.state
+    const { dispatch, meals, mealDays } = this.props
+    console.log(mealDays)
     return (
       <View style={style.container}>
         <FlatList
-          data={data}
-          renderItem={({item}) => <MealDay data={item} />}
+          data={mealDays}
+          renderItem={({item}) => <MealDay dispatch={dispatch} data={item} />}
           keyExtractor={this.keyExtractor}
         />
         <Gateway into="modal">
-          <AddMeals activeDay={activeDay} />
+          <AddMeals
+            addMeal={this.handleAddMeal}
+            deleteMeal={this.handleDeleteMeal}
+            addMealToDay={this.handleSelectMealForDay}
+            meals={meals}
+          />
         </Gateway>
       </View>
     )
   }
 
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mealDays: state.meals.mealDays,
+    meals:    state.meals.meals
+  }
+}
+
+export default connect(mapStateToProps)(MealPlan)
 
 const style = StyleSheet.create({
   container: { 

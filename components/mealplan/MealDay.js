@@ -1,24 +1,25 @@
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { editDay } from '../../state/actions/meals'
 import { toggleModal } from '../../state/actions/nav'
 
-export class MealDay extends PureComponent {
+export default class MealDay extends PureComponent {
 
   static propTypes = {
     data:     PropTypes.object.isRequired,
     dispatch: PropTypes.func
   }
 
-  handleToggleModal = () => {
+  handleToggleModal = (day) => {
+    this.props.dispatch(editDay(day))
     this.props.dispatch(toggleModal())
   }
   
   render() {
     const { data } = this.props
     return (
-      <TouchableOpacity onPress={this.handleToggleModal}>
+      <TouchableOpacity onPress={() => this.handleToggleModal(data.day)}>
         <View style={style.container}>
           <Text style={{ color: 'grey', fontSize: 30 }}>{data.day}</Text>
           <Text style={{ color: 'white', fontSize: 50 }}>{data.meal}</Text>
@@ -37,5 +38,3 @@ const style = StyleSheet.create({
     width:           '100%' 
   }
 })
-
-export default connect()(MealDay)

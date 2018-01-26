@@ -9,6 +9,12 @@ import AddMeals from './AddMeals'
 
 export class MealPlan extends PureComponent {
   
+  static propTypes = {
+    dispatch: PropTypes.func,
+    mealDays: PropTypes.array,
+    meals:    PropTypes.meals
+  }
+
   keyExtractor = (item, index) => item.day
 
   handleAddMeal = (mealName) => {

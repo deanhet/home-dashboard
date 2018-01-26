@@ -1,8 +1,16 @@
 import React, { PureComponent } from 'react'
 import { View, TextInput, StyleSheet, FlatList } from 'react-native'
+import PropTypes from 'prop-types'
 import Meal from './Meal'
 
 export default class AddMeals extends PureComponent {
+
+  static propTypes = {
+    addMeal:      PropTypes.func,
+    deleteMeal:   PropTypes.func,
+    addMealToDay: PropTypes.func,
+    meals:        PropTypes.array
+  }
 
   state = {
     mealInput: null

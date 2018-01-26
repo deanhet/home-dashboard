@@ -6,8 +6,9 @@ import PropTypes from 'prop-types'
 export default class Meal extends PureComponent {
 
   static propTypes = {
-    data:     PropTypes.string,
-    onDelete: PropTypes.func
+    data:         PropTypes.string,
+    onDelete:     PropTypes.func,
+    onMealSelect: PropTypes.func
   }
 
   render() {

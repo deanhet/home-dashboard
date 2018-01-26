@@ -1,7 +1,6 @@
 import storage from 'redux-persist/lib/storage'
 import { persistCombineReducers } from 'redux-persist'
 
-
 import nav from './reducers/nav'
 
 const config = {

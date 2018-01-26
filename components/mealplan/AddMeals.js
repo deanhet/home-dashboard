@@ -29,6 +29,7 @@ export default class AddMeals extends PureComponent {
   }
 
   deleteMeal = async (mealToDelete) => {
+    // TODO: Should live in the reducer
     const updatedMeals = this.state.meals.filter((meal) => meal !== mealToDelete)
     await AsyncStorage.setItem('@hd:meals', JSON.stringify(updatedMeals))
     this.setState({

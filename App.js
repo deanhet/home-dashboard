@@ -6,7 +6,10 @@ import {
 } from 'react-native'
 import Dimensions from 'Dimensions'
 import { GatewayProvider, GatewayDest } from 'react-gateway'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/lib/integration/react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import {persistor, store} from './state/configureStore'
 import HueSwitches from './components/hueSwitches/'
 import HueTemps from './components/hueTemps/'
 import Clock from './components/clock'
@@ -26,29 +29,33 @@ export default class App extends Component {
 
   render() {
     return (
-      <GatewayProvider>
-        <View style={styles.container}>
-          <View style={{ flex: 1, flexDirection: 'row' }}>
-            <Clock />
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-              <HueSwitches />
-            </View>
-            <View style={{ flex: 1 }}>
-              <HueTemps />
-              <MealPlan />
-            </View>
-          </View>
-          <Spotify />
-          {this.state.showModal &&
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+          <GatewayProvider>
+            <View style={styles.container}>
+              <View style={{ flex: 1, flexDirection: 'row' }}>
+                <Clock />
+                <View style={{ flex: 1, justifyContent: 'center' }}>
+                  <HueSwitches />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <HueTemps />
+                  <MealPlan />
+                </View>
+              </View>
+              <Spotify />
+              {this.state.showModal &&
             <View style={styles.modal}>
               <TouchableOpacity onPress={this.toggleModal} style={styles.closeButton}>
                 <Icon name="clear" style={{ color: 'white', fontSize: 50 }}/>
               </TouchableOpacity>
               <GatewayDest name="modal" component={View} />
             </View>
-          }
-        </View>
-      </GatewayProvider>
+              }
+            </View>
+          </GatewayProvider>
+        </PersistGate>
+      </Provider>
     )
   }
 

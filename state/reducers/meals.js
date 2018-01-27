@@ -16,10 +16,17 @@ const initialState = {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
 
+    case actions.ROTATE_MEAL_DAYS:
+      return {
+        ... state, 
+        mealDays: state.mealDays.concat(
+          state.mealDays.splice(0, new Date().getDay())
+        )
+      }
     case actions.ADD_MEAL:
       return {
         ... state, 
-        meals: [action.data, ... state.meals]
+        meals: [... state.meals, action.data]
       }
     case actions.DELETE_MEAL:
       return {

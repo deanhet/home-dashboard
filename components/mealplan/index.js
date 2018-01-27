@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, StyleSheet, FlatList } from 'react-native'
 import { Gateway } from 'react-gateway'
 import { connect } from 'react-redux'
-import { addMeal, deleteMeal, selectMealForDay } from '../../state/actions/meals'
+import { addMeal, deleteMeal, selectMealForDay, rotateDays } from '../../state/actions/meals'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
@@ -17,6 +17,16 @@ export class MealPlan extends Component {
 
   state = {
     refreshList: false
+  }
+
+  componentDidMount() {
+    this.dayCheck = setInterval(() => {
+      this.props.dispatch(rotateDays())
+    }, 86400000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.dayCheck)
   }
 
   keyExtractor = (item, index) => item.day

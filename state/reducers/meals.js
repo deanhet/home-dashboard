@@ -19,7 +19,7 @@ export default function reducer(state = initialState, action = {}) {
     case actions.ADD_MEAL:
       return {
         ... state, 
-        meals: [... state.meals, action.data]
+        meals: [action.data, ... state.meals]
       }
     case actions.DELETE_MEAL:
       return {

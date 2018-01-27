@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, StyleSheet, FlatList } from 'react-native'
 import { Gateway } from 'react-gateway'
@@ -7,12 +7,16 @@ import { addMeal, deleteMeal, selectMealForDay } from '../../state/actions/meals
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
-export class MealPlan extends PureComponent {
+export class MealPlan extends Component {
   
   static propTypes = {
     dispatch: PropTypes.func,
     mealDays: PropTypes.array,
-    meals:    PropTypes.meals
+    meals:    PropTypes.array
+  }
+
+  state = {
+    refreshList: false
   }
 
   keyExtractor = (item, index) => item.day
@@ -26,17 +30,20 @@ export class MealPlan extends PureComponent {
   }
 
   handleSelectMealForDay = (mealName) => {
-    this.props.dispatch(selectMealForDay(mealName))
+    this.props.dispatch(selectMealForDay(mealName, this.state.activeDay))
   }
 
   render() {
     const { dispatch, meals, mealDays } = this.props
-    console.log(mealDays)
     return (
       <View style={style.container}>
         <FlatList
           data={mealDays}
-          renderItem={({item}) => <MealDay dispatch={dispatch} data={item} />}
+          renderItem={({item}) => <MealDay 
+            onSelectDay={(activeDay) => this.setState({ activeDay })}
+            dispatch={dispatch} 
+            data={item} 
+          />}
           keyExtractor={this.keyExtractor}
         />
         <Gateway into="modal">
@@ -55,8 +62,8 @@ export class MealPlan extends PureComponent {
 
 const mapStateToProps = (state) => {
   return {
-    mealDays: state.meals.mealDays,
-    meals:    state.meals.meals
+    mealDays:    state.meals.mealDays,
+    meals:       state.meals.meals
   }
 }
 

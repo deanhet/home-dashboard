@@ -1,6 +1,6 @@
 import * as actions from '../actions/meals'
 
-export default function reducer(state = {
+const initialState = {
   mealDays: [
     { day: 'Sunday', meal: null },
     { day: 'Monday', meal: null },
@@ -10,9 +10,10 @@ export default function reducer(state = {
     { day: 'Friday', meal: null },
     { day: 'Saturday', meal: null }
   ],
-  meals:       [],
-  editMealDay: null
-}, action = {}) {
+  meals:       []
+}
+
+export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
 
     case actions.ADD_MEAL:
@@ -26,20 +27,19 @@ export default function reducer(state = {
         meals: state.meals.filter((meal) => meal !== action.data)
       }
     case actions.SELECT_MEAL_FOR_DAY:
-      return {
-        ... state,
-        mealDays: state.mealDays.map((mealDay) => {
-          if (mealDay.day === state.editMealDay) {
-            mealDay.meal = action.data
-          }
-          return mealDay
-        })
-      }
-    case actions.EDIT_MEAL_DAY:
-      return {
-        ... state, 
-        editMealDay: action.data
-      }
+      if (action.data.day) {
+        return {
+          ... state,
+          mealDays: state.mealDays.map((mealDay) => {
+            if (mealDay.day === action.data.day) {
+              mealDay.meal = action.data.meal
+            }
+            return mealDay
+          }),
+          editMealDay: null
+        }
+      } 
+      return state
     default:
       return state
   

@@ -12,21 +12,13 @@ export default class Switch extends PureComponent {
     children:      PropTypes.any
   }
   
-  state = {
-    isActive: false
-  }
-
-  toggleActive = async () => {
+  toggleActive = () => {
     const { roomLabel } = this.props
-    const lightToggle = await lightSwitch(roomLabel)
-    this.setState({
-      isActive: lightToggle
-    })
+    const lightToggle = this.props.dispatch(lightSwitch(roomLabel))
   }
 
   render() {
-    const { isActive } = this.state
-    const { roomLabel, labelPosition } = this.props
+    const { roomLabel, labelPosition, isActive } = this.props
     const { width, height } = this.props.style
     return (
       <TouchableOpacity 

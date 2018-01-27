@@ -1,34 +1,28 @@
 import React, { PureComponent } from 'react'
-import { View, Text, StyleSheet, Image, Animated } from 'react-native'
-import { currentlyPlaying } from '../../actions/spotify'
+import { View, Text, StyleSheet, Image, Animated, TouchableOpacity } from 'react-native'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { currentlyPlaying, skipTrack } from '../../actions/spotify'
 
-export default class Spotify extends PureComponent {
-
-  state = {
-    artist:  null,
-    track:   null,
-    visible: false,
-    image:   null
-  }
+export class Spotify extends PureComponent {
 
   barHeight = new Animated.Value(0)
 
+  static propTypes = {
+    dispatch: PropTypes.func,
+    visible:  PropTypes.bool,
+    image:    PropTypes.string,
+    track:    PropTypes.string,
+    artist:   PropTypes.string
+  }
+
   componentDidMount() {
-    this.currentlyPlaying = setInterval(async () => {
-      const currentSong = await currentlyPlaying()
-      if (currentSong) {
-        this.setState({
-          image:   currentSong.item.album.images[2].url,
-          visible: currentSong.is_playing,
-          artist:  currentSong.item.artists[0].name,
-          track:   currentSong.item.name
-        })
-      } else {
-        this.setState({ visible: false })
-      }
+    this.currentlyPlaying = setInterval(() => {
+      this.props.dispatch(currentlyPlaying())
       Animated.timing(this.barHeight, {
         timing:  400,
-        toValue: this.state.visible ? 60 : 0
+        toValue: this.props.visible ? 60 : 0
       }).start()
     }, 15000)
   }
@@ -37,20 +31,45 @@ export default class Spotify extends PureComponent {
     clearInterval(this.currentlyPlaying)
   }
 
+  previousSong = () => {
+    this.props.dispatch(skipTrack('previous'))
+  }
+
+  nextSong = () => {
+    this.props.dispatch(skipTrack('next'))
+  }
+
   render() {
-    const { image, track, artist } = this.state
+    const { image, track, artist } = this.props
     return (
       <Animated.View style={[style.container, {height: this.barHeight}]}>
         {image && <Image source={{ uri: image }} style={style.image} />}  
-        <View style={{ paddingLeft: 15 }}>
+        <View style={{ flex: 1, paddingLeft: 15 }}>
           <Text style={[style.text, {fontWeight: 'bold'}]}>{artist}</Text>
           <Text style={style.text}>{track}</Text>
         </View>
+        <TouchableOpacity onPress={this.previousSong}>
+          <Icon style={style.icon} name="skip-previous" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this.nextSong}>
+          <Icon style={style.icon} name="skip-next" />
+        </TouchableOpacity>
       </Animated.View>
     )
   }
 
 }
+
+const mapStateToProps = (state) => {
+  return {
+    image:   state.spotify.image,
+    visible: state.spotify.visible,
+    artist:  state.spotify.artist,
+    track:   state.spotify.track
+  }
+}
+
+export default connect(mapStateToProps)(Spotify)
 
 const style = StyleSheet.create({
   container: {
@@ -63,6 +82,10 @@ const style = StyleSheet.create({
   image: {
     height: 60,
     width:  60
+  },
+  icon: {
+    color:    'white',
+    fontSize: 60
   },
   text: {
     fontSize: 18,

@@ -20,6 +20,8 @@ export class MealPlan extends Component {
   }
 
   componentDidMount() {
+
+    // TODO: Save current day in reducer so this interval can be an hour
     this.dayCheck = setInterval(() => {
       this.props.dispatch(rotateDays())
     }, 86400000)

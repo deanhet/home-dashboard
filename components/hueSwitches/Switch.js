@@ -8,13 +8,15 @@ export default class Switch extends PureComponent {
   static propTypes = {
     roomLabel:     PropTypes.string,
     labelPosition: PropTypes.object,
+    dispatch:      PropTypes.func,
     style:         PropTypes.object,
-    children:      PropTypes.any
+    children:      PropTypes.any,
+    isActive:      PropTypes.bool
   }
   
   toggleActive = () => {
     const { roomLabel } = this.props
-    const lightToggle = this.props.dispatch(lightSwitch(roomLabel))
+    this.props.dispatch(lightSwitch(roomLabel))
   }
 
   render() {

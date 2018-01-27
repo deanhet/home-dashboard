@@ -1,9 +1,27 @@
 import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { pollLights } from '../../actions/hue'
 import Switch from './Switch'
 
 export class HueSwitches extends PureComponent {
+
+  static propTypes = {
+    dispatch:     PropTypes.func,
+    lightsActive: PropTypes.object
+  }
+
+  componentDidMount() {
+    this.pollInteral = setInterval(() => {
+      this.props.dispatch(pollLights())
+    }, 300000)
+    // 5 minutes
+  }
+  
+  componentWillUnmount() {
+    clearInterval(this.pollInteral)
+  }
 
   render() {
     const { lightsActive, dispatch } = this.props
@@ -37,9 +55,9 @@ export class HueSwitches extends PureComponent {
         />
         <Switch 
           style={{ top: 150, left: 150, height: 150, width: 200 }} 
-          roomLabel="Living Room" 
+          roomLabel="Living room" 
           dispatch={dispatch}
-          isActive={lightsActive.LivingRoom} 
+          isActive={lightsActive['Living room']} 
         />
         <Switch 
           style={{ left: 0, top: 250, height: 100, width: 175 }}

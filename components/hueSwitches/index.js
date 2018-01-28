@@ -15,8 +15,8 @@ export class HueSwitches extends PureComponent {
   componentDidMount() {
     this.pollInteral = setInterval(() => {
       this.props.dispatch(pollLights())
-    }, 300000)
-    // 5 minutes
+    }, 60000)
+    // 1 min
   }
   
   componentWillUnmount() {

@@ -3550,6 +3550,10 @@ react-gateway@^3.0.0:
     prop-types "^15.5.0"
     react-prop-types "^0.4.0"
 
+react-native-calendar-events@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-calendar-events/-/react-native-calendar-events-1.4.3.tgz#29804e8b44d6946e69ab5a20902d9449ed315c47"
+
 react-native-vector-icons@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"

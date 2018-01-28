@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import { lightSwitch } from '../../actions/hue'
+import { lightSwitch } from '../../state/actions/hue'
 
 export default class Switch extends PureComponent {
 

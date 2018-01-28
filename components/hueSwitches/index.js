@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { pollLights } from '../../actions/hue'
+import { pollLights } from '../../state/actions/hue'
 import Switch from './Switch'
 
 export class HueSwitches extends PureComponent {

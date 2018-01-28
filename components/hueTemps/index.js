@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { sensors } from '../../actions/hue'
+import { sensors } from '../../state/actions/hue'
 
 export default class HueTemps extends PureComponent {
 

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Animated, TouchableOpacity } from 'react
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { currentlyPlaying, skipTrack } from '../../actions/spotify'
+import { currentlyPlaying, skipTrack } from '../../state/actions/spotify'
 
 export class Spotify extends PureComponent {
 

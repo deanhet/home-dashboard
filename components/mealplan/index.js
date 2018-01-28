@@ -86,7 +86,8 @@ const style = StyleSheet.create({
     backgroundColor: 'rgba(50,50,50,0.6)',
     maxHeight:       400,
     padding:         15,
-    margin:          15,
+    marginLeft:      15,
+    marginRight:     15,
     overflow:        'hidden'
   },
   icon: {

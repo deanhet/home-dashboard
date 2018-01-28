@@ -17,6 +17,7 @@ import HueTemps from '../hueTemps'
 import Clock from '../clock'
 import Spotify from '../spotify'
 import MealPlan from '../mealplan'
+import Events from '../events'
 
 export class AppBody extends Component {
 
@@ -34,14 +35,17 @@ export class AppBody extends Component {
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Clock />
-          <View style={{ flex: 1, justifyContent: 'center' }}>
-            <HueSwitches />
-          </View>
+          <View style={{ flex: 1 }} />
+          <HueTemps />
+        </View>
+        <View style={{ flex: 3, flexDirection: 'row' }}>
+          <Events />
+          <HueSwitches />
           <View style={{ flex: 1 }}>
-            <HueTemps />
             <MealPlan />
           </View>
         </View>
+        <View style={{ flex: 1, flexDirection: 'row' }} />
         <Spotify />
         {this.props.modalOpen &&
         <View style={styles.modal}>

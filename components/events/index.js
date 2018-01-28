@@ -1,23 +1,92 @@
 import React, { PureComponent } from 'react'
-import { View } from 'react-native'
-import RNCalendarEvents from 'react-native-calendar-events'
+import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { refreshEvents } from '../../state/actions/events'
+import CalendarBox from './CalendarBox'
 
-export default class Events extends PureComponent {
+export class Events extends PureComponent {
 
-  async componentDidMount() {
-    const isAuthorized = await RNCalendarEvents.authorizationStatus()
-    if (isAuthorized !== 'authorized') {
-      await RNCalendarEvents.authorizeEventStore()
-    }
-    const today = new Date()
-    const nextWeek = new Date()
-    nextWeek.setDate(nextWeek.getDate() + 7)
-    console.log(await RNCalendarEvents.findCalendars())
-    console.log(await RNCalendarEvents.fetchAllEvents(today.toISOString(), nextWeek.toISOString(), ['2']))
+  static propTypes = {
+    dispatch: PropTypes.func,
+    events:   PropTypes.array
+  }
+
+  componentDidMount() {
+    this.eventInterval = setInterval(() => {
+      this.props.dispatch(refreshEvents())
+    }, 3600000)
+    // 1 hour
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.eventInterval)
   }
 
   render() {
-    return <View style={{ flex: 1, backgroundColor: 'orange' }} />
+    const { events } = this.props
+    return (
+      <View style={style.container}>
+        { events.length 
+          ? <ScrollView>
+            {events.map((event) => {
+              const eventDate = new Date(event.startDate)
+              return ( 
+                <View key={event.id + event.startDate}>
+                  <View style={style.eventRow}>
+                    <CalendarBox date={eventDate.getDate()}/>
+                    <View style={style.textContainer}>
+                      <Text style={style.eventTitle}>{event.title}</Text>
+                      <Text style={{ marginTop: -3, color: 'white' }}>
+                        {eventDate.toLocaleString(
+                          'en-US', 
+                          { hour: 'numeric', minute: 'numeric', hour12: true })
+                        }
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              )
+            })}
+          </ScrollView>
+          : <View style={{ flexDirection: 'row', alignItems: 'center' }}> 
+            <CalendarBox date={'?'}/>
+            <View style={style.textContainer}>
+              <Text style={style.eventTitle}>No upcoming events</Text>
+            </View>
+          </View>
+        }
+      </View>
+    )
   }
 
 }
+
+const mapStateToProps = (state) => {
+  return {
+    events: state.events.calendarEvents
+  }
+}
+
+export default connect(mapStateToProps)(Events)
+
+const style = StyleSheet.create({
+  container: {
+    flex:            1, 
+    marginLeft:      15,
+    marginRight:     15
+  },
+  eventRow: {
+    flexDirection: 'row', 
+    marginBottom:  5, 
+    alignItems:    'center'
+  },
+  textContainer: {
+    flex:        1, 
+    paddingLeft: 5
+  },
+  eventTitle: {
+    color:       'white',
+    fontSize:    27
+  }
+})

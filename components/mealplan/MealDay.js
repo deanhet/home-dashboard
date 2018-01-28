@@ -22,8 +22,8 @@ export default class MealDay extends PureComponent {
     return (
       <TouchableOpacity onPress={() => this.handleToggleModal(data.day)}>
         <View style={style.container}>
-          <Text style={{ color: 'grey', fontSize: 30 }}>{data.day}</Text>
-          <Text style={{ color: 'white', fontSize: 50 }}>{data.meal}</Text>
+          <Text style={{ color: 'grey' }}>{data.day}</Text>
+          <Text style={{ color: 'white', fontSize: 27 }}>{data.meal}</Text>
         </View> 
       </TouchableOpacity>
     )

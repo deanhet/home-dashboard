@@ -17,10 +17,11 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
 
     case actions.ROTATE_MEAL_DAYS:
+      const dayIndex = state.mealDays.findIndex((mealDay) => mealDay.day === action.data)
       return {
         ... state, 
         mealDays: state.mealDays.concat(
-          state.mealDays.splice(0, new Date().getDay())
+          state.mealDays.splice(0, dayIndex)
         )
       }
     case actions.ADD_MEAL:

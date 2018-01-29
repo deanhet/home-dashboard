@@ -18,6 +18,7 @@ import Clock from '../clock'
 import Spotify from '../spotify'
 import MealPlan from '../mealplan'
 import Events from '../events'
+import Weather from '../weather'
 
 export class AppBody extends Component {
 
@@ -45,7 +46,11 @@ export class AppBody extends Component {
             <MealPlan />
           </View>
         </View>
-        <View style={{ flex: 1, flexDirection: 'row' }} />
+        <View style={{ flex: 1, flexDirection: 'row' }}>
+          <Weather />
+          <View style={{ flex: 1 }} />
+          <View style={{ flex: 1 }} />
+        </View>
         <Spotify />
         {this.props.modalOpen &&
         <View style={styles.modal}>

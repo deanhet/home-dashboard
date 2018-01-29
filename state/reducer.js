@@ -6,6 +6,7 @@ import nav from './reducers/nav'
 import hue from './reducers/hue'
 import spotify from './reducers/spotify'
 import events from './reducers/events'
+import weather from './reducers/weather'
 
 const config = {
   key: 'primary',
@@ -16,5 +17,6 @@ export default persistCombineReducers(config, {
   meals,
   hue,
   spotify,
-  events
+  events,
+  weather
 })

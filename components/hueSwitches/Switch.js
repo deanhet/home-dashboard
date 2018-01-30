@@ -29,10 +29,8 @@ export default class Switch extends PureComponent {
         // show dimmer UI
       },
       onPanResponderMove: (event, gesture) => {
-        let newPosition = gesture.dy + this.scrollYPosition
-        newPosition = Math.max(Math.min(newPosition + gesture.dy, 230), 0)
-        console.log({ newPosition })
-
+        let newPosition = (-1 * gesture.dy) + this.scrollYPosition
+        newPosition = Math.max(Math.min(newPosition + -1 * (gesture.dy), 230), 0)
         this.animatedValue.setValue(newPosition)
         this.setState({ position: newPosition })
       },

@@ -23,7 +23,7 @@ export default class WeatherIcon extends PureComponent {
       case 'sleet':
         return 'snow'
       case 'wind':
-        return 'wind'
+        return 'cloud-wind'
       case 'fog':
         return 'fog-cloud'
       case 'cloudy':

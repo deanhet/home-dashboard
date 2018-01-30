@@ -67,7 +67,7 @@ const style = StyleSheet.create({
     fontSize:    20
   },
   subtitle: {
-    fontSize: 17
+    fontSize: 18
   }
 })
 

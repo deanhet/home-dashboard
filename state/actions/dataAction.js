@@ -5,10 +5,11 @@ const data = async (url, config = {
 }) => {
   try {
     const data = await fetch(url, config)
-    if (!data.ok || data._bodyText === "" ) return null
+    // console.log({ data, url })
+    if (!data || !data.ok || data._bodyText === '') return null
     const response = await data.json()
     return response
-  } catch (error){
+  } catch (error) {
     console.log(error)
   }
 

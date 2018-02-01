@@ -25,6 +25,14 @@ export class Weather extends PureComponent {
 
   render() {
     const { weather } = this.props
+    if (Object.keys(weather).length === 0) {
+      return (
+        <View style={style.container}>
+          <Text style={style.bigText}>
+          No weather data available
+          </Text>
+        </View>)
+    }
     return (
       <View style={style.container}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -52,7 +60,7 @@ const mapStateToProps = (state) => {
 
 const style = StyleSheet.create({
   container: {
-    flex:    1, 
+    flex:    1,
     padding: 15
   }, 
   bigText: {

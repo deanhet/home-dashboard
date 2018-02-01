@@ -45,7 +45,7 @@ export default class AddMeals extends PureComponent {
           style={style.textInput}
         />
         <FlatList
-          data={this.props.meals.sort((a, b) => a.localeCompare(b))}
+          data={this.props.meals.filter((meal) => meal).sort((a, b) => a.localeCompare(b))}
           style={{ marginTop: 15, marginBottom: 15 }}
           renderItem={({item}) => <Meal 
             data={item} 

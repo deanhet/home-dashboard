@@ -72,9 +72,11 @@ export default connect(mapStateToProps)(Events)
 
 const style = StyleSheet.create({
   container: {
-    flex:            1, 
-    marginLeft:      15,
-    marginRight:     15
+    borderBottomWidth: 1,
+    borderColor:       'grey',
+    flex:              1, 
+    marginLeft:        15,
+    marginRight:       20
   },
   eventRow: {
     flexDirection: 'row', 

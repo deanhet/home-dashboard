@@ -5,15 +5,29 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 export default class Clock extends PureComponent {
 
   state = {
-    date: new Date().toLocaleDateString('en-GB', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }),
-    time: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    date: new Date().toLocaleDateString('en-GB', { 
+      weekday: 'short', 
+      year:    'numeric', 
+      month:   'short', 
+      day:     'numeric' 
+    }),
+    time: new Date().toLocaleString('en-US', { 
+      hour:   'numeric', 
+      minute: 'numeric', 
+      hour12: true 
+    })
   }
 
   componentWillMount() {
     this.timeoutClock = setInterval(() => {
       const time = new Date()
       this.setState({
-        date: time.toLocaleDateString('en-GB', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }),
+        date: time.toLocaleDateString('en-GB', { 
+          weekday: 'short', 
+          year:    'numeric', 
+          month:   'short', 
+          day:     'numeric' 
+        }),
         time: time.toLocaleString('en-GB', { hour: 'numeric', minute: 'numeric', hour12: true })
       })
     }, 1000)

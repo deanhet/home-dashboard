@@ -89,6 +89,6 @@ const style = StyleSheet.create({
   },
   eventTitle: {
     color:       'white',
-    fontSize:    27
+    fontSize:    20
   }
 })

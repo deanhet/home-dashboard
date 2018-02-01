@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { View, StyleSheet, FlatList } from 'react-native'
 import { Gateway } from 'react-gateway'
 import { connect } from 'react-redux'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { addMeal, deleteMeal, selectMealForDay, rotateDays } from '../../state/actions/meals'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
@@ -48,6 +49,7 @@ export class MealPlan extends Component {
     const { dispatch, meals, mealDays } = this.props
     return (
       <View style={style.container}>
+        <Icon name="local-dining" style={style.icon} />
         <FlatList
           data={mealDays}
           renderItem={({item}) => <MealDay 
@@ -83,17 +85,15 @@ export default connect(mapStateToProps)(MealPlan)
 const style = StyleSheet.create({
   container: { 
     backgroundColor: 'rgba(50,50,50,0.6)',
-    maxHeight:       400,
     padding:         15,
     marginLeft:      15,
     marginRight:     15,
     overflow:        'hidden'
   },
-  icon: {
-    alignSelf: 'flex-end',
-    height:    30,
-    width:     30,
-    color:     'white',
-    fontSize:  30
+  icon: { 
+    position: 'absolute',
+    fontSize: 40, 
+    color:    'grey', 
+    zIndex:   3 
   }
 })

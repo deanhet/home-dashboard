@@ -19,6 +19,7 @@ import Spotify from '../spotify'
 import MealPlan from '../mealplan'
 import Events from '../events'
 import Weather from '../weather'
+import TV from '../tv'
 
 export class AppBody extends Component {
 
@@ -40,7 +41,10 @@ export class AppBody extends Component {
           <HueTemps />
         </View>
         <View style={{ flex: 3, flexDirection: 'row' }}>
-          <Events />
+          <View style={{ flex: 1 }}>  
+            <Events />
+            <TV />
+          </View>
           <HueSwitches />
           <View style={{ flex: 1 }}>
             <MealPlan />

@@ -26,6 +26,13 @@ export class Bus extends PureComponent {
 
   render() {
     const { times, disruptions } = this.props
+    if (times.length === 0) {
+      return (
+        <View style={style.container}>
+          <Text style={{ color: 'white', fontSize: 50 }}>No bus data available</Text>
+        </View>
+      )
+    }
     return (
       <View style={style.container}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>  

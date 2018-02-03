@@ -13,6 +13,7 @@
     "react-gateway": "^3.0.0",
     "react-native": "0.52.2",
     "react-native-calendar-events": "^1.4.3",
+    "react-native-md5": "^1.0.0",
     "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",

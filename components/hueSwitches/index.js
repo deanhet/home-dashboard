@@ -26,45 +26,47 @@ export class HueSwitches extends PureComponent {
   render() {
     const { lights, dispatch } = this.props
     return (
-      <View style={style.container}>
-        <Switch 
-          style={{ left: 50, top: 0, width: 150, height: 150 }} 
-          roomLabel="Hallway" 
-          dispatch={dispatch}
-          light={lights.Hallway}
-          labelPosition={{ top: 110, left: 25 }}
-        >
-          <View 
-            style={[
-              style.hallway, 
-              {top: 0, height: 150, width: 50}
-            ]} 
+      <View style={{ paddingTop: 40 }}>
+        <View style={style.container}>
+          <Switch 
+            style={{ left: 50, top: 0, width: 150, height: 150 }} 
+            roomLabel="Hallway" 
+            dispatch={dispatch}
+            light={lights.Hallway}
+            labelPosition={{ top: 110, left: 25 }}
+          >
+            <View 
+              style={[
+                style.hallway, 
+                {top: 0, height: 150, width: 50}
+              ]} 
+            />
+            <View 
+              style={[
+                style.hallway, 
+                {left: 0, top: 100, height: 50, width: 150}
+              ]} 
+            />
+          </Switch>
+          <Switch 
+            style={{ top: 0, left: 200, height: 150, width: 150 }} 
+            roomLabel="Bedroom" 
+            dispatch={dispatch}
+            light={lights.Bedroom} 
           />
-          <View 
-            style={[
-              style.hallway, 
-              {left: 0, top: 100, height: 50, width: 150}
-            ]} 
+          <Switch 
+            style={{ top: 150, left: 150, height: 150, width: 200 }} 
+            roomLabel="Living room" 
+            dispatch={dispatch}
+            light={lights['Living room']}
           />
-        </Switch>
-        <Switch 
-          style={{ top: 0, left: 200, height: 150, width: 150 }} 
-          roomLabel="Bedroom" 
-          dispatch={dispatch}
-          light={lights.Bedroom} 
-        />
-        <Switch 
-          style={{ top: 150, left: 150, height: 150, width: 200 }} 
-          roomLabel="Living room" 
-          dispatch={dispatch}
-          light={lights['Living room']}
-        />
-        <Switch 
-          style={{ left: 0, top: 250, height: 100, width: 175 }}
-          roomLabel="Kitchen" 
-          dispatch={dispatch}
-          light={lights.Kitchen} 
-        />
+          <Switch 
+            style={{ left: 0, top: 250, height: 100, width: 175 }}
+            roomLabel="Kitchen" 
+            dispatch={dispatch}
+            light={lights.Kitchen} 
+          />
+        </View>
       </View>
     )
   }

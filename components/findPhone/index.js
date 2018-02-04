@@ -8,7 +8,9 @@ import Phone from './Phone'
 export class FindPhone extends PureComponent {
 
   static propTypes = {
-    dispatch: PropTypes.func
+    dispatch:  PropTypes.func,
+    sazPhone:  PropTypes.object,
+    deanPhone: PropTypes.object
   }
   
   handleSearch = () => {
@@ -28,8 +30,11 @@ export class FindPhone extends PureComponent {
 
   render() {
     const { sazPhone, deanPhone } = this.props
+    if (Object.keys(sazPhone).length === 0 || Object.keys(deanPhone).length === 0) {
+      return <View style={{ flex: 1 }} />
+    }
     return (
-      <View style={{ justifyContent: 'center', flex: 1, padding: 15, paddingLeft: 0, flexDirection: 'row' }}>
+      <View style={style.container}>
         <Phone
           phone={sazPhone}
           name="Sarah"
@@ -46,6 +51,16 @@ export class FindPhone extends PureComponent {
   }
 
 }
+
+const style = StyleSheet.create({
+  container: { 
+    justifyContent: 'center',
+    flex:           1,
+    padding:        15,
+    paddingLeft:    0,
+    flexDirection:  'row' 
+  }
+})
 
 const mapStateToProps = (state) => {
   return {

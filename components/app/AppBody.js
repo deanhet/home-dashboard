@@ -21,6 +21,7 @@ import Events from '../events'
 import Weather from '../weather'
 import TV from '../tv'
 import Bus from '../bus'
+import FindPhone from '../findPhone/'
 
 export class AppBody extends Component {
 
@@ -53,7 +54,7 @@ export class AppBody extends Component {
         </View>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Weather />
-          <View style={{ flex: 1 }} />
+          <FindPhone />
           <Bus />
         </View>
         <Spotify />

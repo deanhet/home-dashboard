@@ -9,6 +9,7 @@ import events from './reducers/events'
 import weather from './reducers/weather'
 import tv from './reducers/tv'
 import bus from './reducers/bus'
+import icloud from './reducers/icloud'
 
 const config = {
   key: 'primary',
@@ -22,5 +23,6 @@ export default persistCombineReducers(config, {
   events,
   weather,
   tv,
-  bus
+  bus,
+  icloud
 })

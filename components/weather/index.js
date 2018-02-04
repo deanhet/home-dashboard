@@ -20,7 +20,7 @@ export class Weather extends PureComponent {
   }
 
   componentWillUnmount() {
-    clearInterval(this.currentlyPlaying)
+    clearInterval(this.weatherInterval)
   }
 
   render() {
@@ -60,8 +60,9 @@ const mapStateToProps = (state) => {
 
 const style = StyleSheet.create({
   container: {
-    flex:    1,
-    padding: 15
+    flex:           0.9,
+    padding:        15,
+    justifyContent: 'center'
   }, 
   bigText: {
     paddingLeft: 10,

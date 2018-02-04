@@ -6,7 +6,7 @@ const data = async (url, config = {
 }, setCookie) => {
   try {
     const data = await fetch(url, config)
-    console.log({ data, url, config })
+    // console.log({ data, url, config })
     if (!data || !data.ok || data._bodyText === '') return null
     if (setCookie) {
       await AsyncStorage.setItem('@hd:cookie', data.headers.map['set-cookie'][0])

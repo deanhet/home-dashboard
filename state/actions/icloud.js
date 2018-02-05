@@ -58,8 +58,8 @@ export function pingDevice() {
 
 async function login() {
   const body = {
-    apple_id:       keys.iCloudUsername,
-    password:       keys.iCloudPassword,
+    apple_id:       keys.icloud.iCloudUsername,
+    password:       keys.icloud.iCloudPassword,
     extended_login: true
   }
   const response = await data('https://setup.icloud.com/setup/ws/1/login', {

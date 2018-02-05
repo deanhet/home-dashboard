@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { pollLights } from '../../state/actions/hue'
+import { showScreenSaver } from '../../state/actions/nav'
 import Switch from './Switch'
 
 export class HueSwitches extends PureComponent {
@@ -19,6 +20,17 @@ export class HueSwitches extends PureComponent {
     // 1 min
   }
   
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.lights['Living room'].on) {
+      this.screensaver = setTimeout(() => {
+        this.props.dispatch(showScreenSaver())
+      }, 900000)
+      // 15 mins
+    } else {
+      clearTimeout(this.screensaver)
+    }
+  }
+
   componentWillUnmount() {
     clearInterval(this.pollInteral)
   }

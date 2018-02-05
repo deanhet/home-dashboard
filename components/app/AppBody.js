@@ -22,12 +22,14 @@ import Weather from '../weather'
 import TV from '../tv'
 import Bus from '../bus'
 import FindPhone from '../findPhone/'
+import Screensaver from './Screensaver'
 
 export class AppBody extends Component {
 
   static propTypes = {
-    dispatch:  PropTypes.func,
-    modalOpen: PropTypes.bool
+    dispatch:        PropTypes.func,
+    modalOpen:       PropTypes.bool,
+    screensaver: PropTypes.bool
   }
 
   handleToggleModal = () => {
@@ -35,6 +37,7 @@ export class AppBody extends Component {
   }
 
   render() {
+    const { modalOpen, screensaver } = this.props
     return (
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -58,7 +61,8 @@ export class AppBody extends Component {
           <Bus />
         </View>
         <Spotify />
-        {this.props.modalOpen &&
+        {screensaver && <Screensaver />}
+        {modalOpen &&
         <View style={styles.modal}>
           <TouchableOpacity onPress={this.handleToggleModal} style={styles.closeButton}>
             <Icon name="clear" style={{ color: 'white', fontSize: 50 }}/>
@@ -74,7 +78,8 @@ export class AppBody extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    modalOpen: state.nav.modalOpen
+    modalOpen:       state.nav.modalOpen,
+    screensaver: state.nav.screensaver
   }
 }
 

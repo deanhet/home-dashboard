@@ -20,8 +20,8 @@ export class FindPhone extends PureComponent {
   componentDidMount() {
     this.phoneInterval = setInterval(() => {
       this.props.dispatch(deviceLocations())
-    }, 300000)
-    // 5 mins
+    }, 600000)
+    // 10 mins
   }
 
   componentWillUnmount() {

@@ -22,11 +22,16 @@ export class HueSwitches extends PureComponent {
   
   componentWillReceiveProps(nextProps) {
     if (!nextProps.lights['Living room'].on) {
-      this.screensaver = setTimeout(() => {
-        this.props.dispatch(showScreenSaver())
-      }, 900000)
-      // 15 mins
+      if (!this.timeoutRunning) {
+        this.timeoutRunning = true
+        this.screensaver = setTimeout(() => {
+          this.props.dispatch(showScreenSaver())
+          this.timeoutRunning = false
+        }, 900000)
+        // 15 mins
+      }
     } else {
+      this.timeoutRunning = false
       clearTimeout(this.screensaver)
     }
   }

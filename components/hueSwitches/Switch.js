@@ -25,12 +25,6 @@ export default class Switch extends PureComponent {
     showBrightnessOverlay: false
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     position: nextProps.style.height * (100 / 254) * nextProps.light.brightness * 0.01
-  //   })
-  // }
-
   componentWillMount() {
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => {

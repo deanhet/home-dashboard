@@ -7,8 +7,7 @@ description: A react-native dashboard to show what's going on in the house
 
 # The home of the future!
 
-### TODO: BIG FINAL PICTURE HERE 
-TODO: PICTURE ON WALL
+![app-screen](assets/images/app-screen.jpg)
 ![wall-mounted](assets/images/wall-mounted.jpg)
 
 

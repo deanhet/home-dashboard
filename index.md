@@ -67,7 +67,7 @@ If a song is currently playing, a bar will slide up showing song info. I eventua
 My entire home is kitted out with Hue lights and a couple of motion sensors to automatically trigger them. It seems to be little advertised but the [Hue Motions Sensors](https://www2.meethue.com/en-us/p/hue-motion-sensor/046677473389) can also measure temperature and light levels. This component takes the temperature in my hall and kitchen every 5 minutes. The main home temperature is just an average of the two. The thermometer icons will change depending on each temperature.
 
 ### Hue Lights
-Buttons to toggle lights on and off and change brightness.
+Buttons to toggle lights on and off and change brightness. Light states are also frequently polled just in case a light is turned on outside of the app.
 
 This component went through a lot of work before I settled on the final design. After sharing some early screenshots with friends, they gave me the idea for the 'floorplan'. As you can see below, it went through some very ugly prototypes before landing on the final design.
 
@@ -114,7 +114,6 @@ Making use of the great [Dark Sky](https://darksky.net) API, this component prov
 Shows current battery percentage and location of phones with the last time the location was updated at. Has the ability to ping device too.
 
 ![find-iphone](assets/images/find-iphone.png)
-TODO: Fake one of these locations
 
 Apple doesn't provide any external API for tracking find my iPhone. They do however provide a web interface for it at [icloud.com](https://www.icloud.com). The large majority of this work was just sitting with a network inspector open and playing with the web interface. Eventually I boiled the requests down to what I needed. The app mimics those requests so it can access everything that Apple's own web interface can.
 
@@ -126,6 +125,7 @@ Apple returns coordinates for the phone location so once that's returned it's pi
 
 ### TV Schedule
 Show upcoming TV shows.
+
 ![tv](assets/images/tv.jpg)
 
 I run a home server for [Plex](https://www.plex.tv) that also runs an instance of [SickBeard](http://sickbeard.com/). SickBeard provides a nice API to get the future schedule of shows I'm watching. Updates once a day.
@@ -137,9 +137,10 @@ TODO: Screenshot of calendar
 We use a shared iCloud calendar at home so it's dead handy to see what's coming up. Since the iPad is logged in to my account, I can just use native code to access the accounts calendar. I originally started writing my own native integration in Swift but as is normally the case with date and times, it's not a lot of fun. I ended up using the fantastic [react-native-calendar-events](https://github.com/wmcmahan/react-native-calendar-events) library.
 
 ### Screensaver
-The time bouncing for left to right.
+The time bouncing from left to right.
 
-TODO: screenshot of screensaver
+![screensaver](assets/images/screensaver.png)
+
 I'm not too concerned about burn-in on the iPad's screen but I added a screensaver just to be on the safe side. Since the app is aware of its surroundings it will only trigger the screensaver if the lights are off for more than 15 minutes. The main interface can be brought back just by touching the screen anywhere.
 
 ## Contact

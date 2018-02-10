@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Home Dashboard
-tagline: THE HOME OF THE FUUUTUUUURE
+tagline: 
 description: A react-native dashboard to show what's going on in the house
 ---
 

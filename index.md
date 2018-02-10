@@ -9,6 +9,8 @@ description: A react-native dashboard to show what's going on in the house
 
 ### TODO: BIG FINAL PICTURE HERE 
 TODO: PICTURE ON WALL
+![wall-mounted](assets/images/wall-mounted.jpg)
+
 
 I'm obsessed with controlling my home. Once you get into home automation it's a slippery slope. One minute you're bookmarking potential ideas, the next you're asking the in-laws to get you light bulbs for Christmas.
 
@@ -57,7 +59,7 @@ The core of this component is just a setInterval loop that runs every second. I 
 ### Spotify
 Shows the currently playing Artist and Song
 
-TODO: Gif of sliding in bar
+<video src="assets/videos/currently-playing.mp4" width="100%" loop muted autoplay height="100" preload></video>
 
 If a song is currently playing, a bar will slide up showing song info. I eventually added next/previous controls after giving the app some real-life use. The Spotify API doesn't currently offer a websocket/constant connection so the app pings a request every 15 seconds. It's not an ideal solution and I'd love to change away from this approach.
 
@@ -119,7 +121,7 @@ Apple doesn't provide any external API for tracking find my iPhone. They do howe
 
 When a phone icon is pressed a (loud) alert is sent to the phone, even when it's on silent. Super handy since we always seem to be losing our phones around the house.
 
-- TODO: Gif of finding sarah's phone
+<video src="assets/videos/find-phone.mp4" controls width="100%" height="400" preload></video>
 
 Apple returns coordinates for the phone location so once that's returned it's piped through Google maps to get a more readable walking time and distance away from home.
 
@@ -131,8 +133,9 @@ Show upcoming TV shows.
 I run a home server for [Plex](https://www.plex.tv) that also runs an instance of [SickBeard](http://sickbeard.com/). SickBeard provides a nice API to get the future schedule of shows I'm watching. Updates once a day.
 
 ### Calendar events
-Shows upcoming shared calendar events for the next two weeks.
-TODO: Screenshot of calendar
+Shows a list of scrollable upcoming shared calendar events for the next two weeks.
+
+![calendar](assets/images/calendar.jpg)
 
 We use a shared iCloud calendar at home so it's dead handy to see what's coming up. Since the iPad is logged in to my account, I can just use native code to access the accounts calendar. I originally started writing my own native integration in Swift but as is normally the case with date and times, it's not a lot of fun. I ended up using the fantastic [react-native-calendar-events](https://github.com/wmcmahan/react-native-calendar-events) library.
 

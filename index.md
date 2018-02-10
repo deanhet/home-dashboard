@@ -51,7 +51,7 @@ TODO: Link these
 ### Clock
 Shows the current time, day, date and year.
 
-![clock](assets/images/clock.png)
+![clock](assets/images/clock.PNG)
 
 The core of this component is just a setInterval loop that runs every second. I wanted to avoid a heavy library like [moment](https://momentjs.com/) just to format time so I made extensive use of `Date.toLocaleString`. Turns out that Javascript has a lot of useful built-in functions for formatting Dates.
 
@@ -92,7 +92,7 @@ They're both a good way to feel like Mr Robot and both worth exploring further i
 ### Meal Plan
 Shows the upcoming meals for the week. List order rotates so the current day is always at the top.
 
-![meals](assets/images/meals.png)
+![meals](assets/images/meals.PNG)
 
 It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
 
@@ -102,7 +102,7 @@ First attempt:
 
 I eventually settled on a modal that shows when a day is pressed. 
 
-![meal-modal](assets/images/meal-modal.png)
+![meal-modal](assets/images/meal-modal.PNG)
 
 ### Weather
 Shows the current weather (apparent and actual temperature), with summary and forecast for the next hour.
@@ -114,7 +114,7 @@ Making use of the great [Dark Sky](https://darksky.net) API, this component prov
 ### Find my iPhone
 Shows current battery percentage and location of phones with the last time the location was updated at. Has the ability to ping device too.
 
-![find-iphone](assets/images/find-iphone.png)
+![find-iphone](assets/images/find-iphone.PNG)
 
 Apple doesn't provide any external API for tracking find my iPhone. They do however provide a web interface for it at [icloud.com](https://www.icloud.com). The large majority of this work was just sitting with a network inspector open and playing with the web interface. Eventually I boiled the requests down to what I needed. The app mimics those requests so it can access everything that Apple's own web interface can.
 
@@ -127,7 +127,7 @@ Apple returns coordinates for the phone location so once that's returned it's pi
 ### TV Schedule
 Show upcoming TV shows.
 
-![tv](assets/images/tv.jpg)
+![tv](assets/images/tv.JPG)
 
 I run a home server for [Plex](https://www.plex.tv) that also runs an instance of [SickBeard](http://sickbeard.com/). SickBeard provides a nice API to get the future schedule of shows I'm watching. Updates once a day.
 

@@ -37,16 +37,13 @@ The app is built entirely in React-Native. All the source code is available [her
 - [Screensaver](#screensaver)
 
 ## Frameworks and dependencies
-- React-native
-- React-gateway
-- react-native-calendar-events
-- react-native-vector-icons
-- redux
-- redux-persist (AsyncStorage)
-- react-native-md5
-
-TODO: Link these
-
+- [React-Native](https://facebook.github.io/react-native/)
+- [react-gateway](https://github.com/cloudflare/react-gateway)
+- [react-native-calendar-events](https://github.com/wmcmahan/react-native-calendar-events)
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+- [redux](https://redux.js.org/docs/introduction/)
+- [redux-persist](https://github.com/rt2zz/redux-persist) (AsyncStorage)
+- [react-native-md5](https://www.npmjs.com/package/react-native-md5)
 
 ### Clock
 Shows the current time, day, date and year.
@@ -116,7 +113,7 @@ Shows current battery percentage and location of phones with the last time the l
 
 ![find-iphone](assets/images/find-iphone.PNG)
 
-Apple doesn't provide any external API for tracking find my iPhone. They do however provide a web interface for it at [icloud.com](https://www.icloud.com). The large majority of this work was just sitting with a network inspector open and playing with the web interface. Eventually I boiled the requests down to what I needed. The app mimics those requests so it can access everything that Apple's own web interface can.
+Apple doesn't provide any external API for Find my iPhone. They do however provide a web interface for it at [icloud.com](https://www.icloud.com). The large majority of this work was just sitting with a network inspector open and playing with the web interface. Eventually I boiled the requests down to what I needed. The app mimics those requests so it can access everything that Apple's own web interface can.
 
 When a phone icon is pressed a (loud) alert is sent to the phone, even when it's on silent. Super handy since we always seem to be losing our phones around the house.
 

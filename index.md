@@ -8,6 +8,7 @@ description: A react-native dashboard to show what's going on in the house
 # The home of the future!
 
 ### TODO: BIG FINAL PICTURE HERE 
+TODO: PICTURE ON WALL
 
 I'm obsessed with controlling my home. Once you get into home automation it's a slippery slope. One minute you're bookmarking potential ideas, the next you're asking the in-laws to get you light bulbs for Christmas.
 
@@ -28,21 +29,28 @@ The app is built entirely in React-Native. All the source code is available [her
     - [Lights](#hue-lights)
 - [Bus Tracker](#bus-tracker)
 - [Meal Plan](#meal-plan)
-- Weather
-- iCloud Find my iPhone
-- TV Schedule
-- Calendar events
-- Screensaver
+- [Weather](#weather)
+- [iCloud Find my iPhone](#find-my-iphone)
+- [TV Schedule](#tv-schedule)
+- [Calendar events](#calendar-events)
+- [Screensaver](#screensaver)
 
 ## Frameworks and dependencies
 - React-native
-TODO: 
+- React-gateway
+- react-native-calendar-events
+- react-native-vector-icons
+- redux
+- redux-persist (AsyncStorage)
+- react-native-md5
+
+TODO: Link these
 
 
 ### Clock
-TODO: SCREEN SHOT OF CLOCK
-
 Shows the current time, day, date and year.
+
+![clock](assets/images/clock.png)
 
 The core of this component is just a setInterval loop that runs every second. I wanted to avoid a heavy library like [moment](https://momentjs.com/) just to format time so I made extensive use of `Date.toLocaleString`. Turns out that Javascript has a lot of useful built-in functions for formatting Dates.
 
@@ -54,7 +62,7 @@ TODO: Gif of sliding in bar
 If a song is currently playing, a bar will slide up showing song info. I eventually added next/previous controls after giving the app some real-life use. The Spotify API doesn't currently offer a websocket/constant connection so the app pings a request every 15 seconds. It's not an ideal solution and I'd love to change away from this approach.
 
 ### Hue Sensors
-TODO: Screenshot of component on its own
+![temperature](assets/images/hue-temps.jpg)
 
 My entire home is kitted out with Hue lights and a couple of motion sensors to automatically trigger them. It seems to be little advertised but the [Hue Motions Sensors](https://www2.meethue.com/en-us/p/hue-motion-sensor/046677473389) can also measure temperature and light levels. This component takes the temperature in my hall and kitchen every 5 minutes. The main home temperature is just an average of the two. The thermometer icons will change depending on each temperature.
 
@@ -67,12 +75,12 @@ This component went through a lot of work before I settled on the final design. 
 
 Touching a room will switch the lights on/off in that room. You can also hold and drag over room to change the brightness. This uses a lot of [PanResponder](https://facebook.github.io/react-native/docs/panresponder.html) to handle the dragging.
 
-TODO: Gif of brightness slider
+<video src="assets/videos/light-dimmer.mp4" width="100%" loop muted autoplay height="400" preload></video>
 
 ### Bus tracker
 Shows when the next bus is at nearest stop with a scrollable panel of future buses. A warning icon will show if there are delays or problems on the route.
 
-TODO: Screenshot of bus tracker
+![bus](assets/images/bus.png)
 
 In this case, I'm only particularly interested in the bus that goes into the city centre. Luckily, the council provides a nice API for tracking buses in my area. 
 
@@ -83,7 +91,7 @@ They're both a good way to feel like Mr Robot and both worth exploring further i
 ### Meal Plan
 Shows the upcoming meals for the week. List order rotates so the current day is always at the top.
 
-TODO: screenshot of meal plan
+![meals](assets/images/meals.png)
 
 It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
 
@@ -93,28 +101,47 @@ First attempt:
 
 I eventually settled on a modal that shows when a day is pressed. 
 
-TODO: screenshot of meal modal
+![meal-modal](assets/images/meal-modal.png)
 
 ### Weather
 Shows the current weather (apparent and actual temperature), with summary and forecast for the next hour.
 
-TODO: Screenshot of weather
+![weather](assets/images/weather.png)
 
 Making use of the great [Dark Sky](https://darksky.net) API, this component provides a lot of value for not a lot of effort. I opted to make the 'feels like' temperature more prominent than the actual temperature. It's no use being prepared for it to be 15 degrees outside when it actually feels a lot colder than that. The API also returns what kind of icon should be shown so that gets matched up with a custom icon font that I built using [fontello](http://fontello.com/).
 
 ### Find my iPhone
-Shows current battery percentage and location of phones. Has the ability to ping device too.
-TODO: Screenshot
+Shows current battery percentage and location of phones with the last time the location was updated at. Has the ability to ping device too.
+
+![find-iphone](assets/images/find-iphone.png)
+TODO: Fake one of these locations
+
+Apple doesn't provide any external API for tracking find my iPhone. They do however provide a web interface for it at [icloud.com](https://www.icloud.com). The large majority of this work was just sitting with a network inspector open and playing with the web interface. Eventually I boiled the requests down to what I needed. The app mimics those requests so it can access everything that Apple's own web interface can.
+
+When a phone icon is pressed a (loud) alert is sent to the phone, even when it's on silent. Super handy since we always seem to be losing our phones around the house.
 
 - TODO: Gif of finding sarah's phone
-- Google maps integration
+
+Apple returns coordinates for the phone location so once that's returned it's piped through Google maps to get a more readable walking time and distance away from home.
+
 ### TV Schedule
-TODO: Screenshot of tv schedule
+Show upcoming TV shows.
+![tv](assets/images/tv.jpg)
+
+I run a home server for [Plex](https://www.plex.tv) that also runs an instance of [SickBeard](http://sickbeard.com/). SickBeard provides a nice API to get the future schedule of shows I'm watching. Updates once a day.
+
 ### Calendar events
+Shows upcoming shared calendar events for the next two weeks.
 TODO: Screenshot of calendar
+
+We use a shared iCloud calendar at home so it's dead handy to see what's coming up. Since the iPad is logged in to my account, I can just use native code to access the accounts calendar. I originally started writing my own native integration in Swift but as is normally the case with date and times, it's not a lot of fun. I ended up using the fantastic [react-native-calendar-events](https://github.com/wmcmahan/react-native-calendar-events) library.
+
 ### Screensaver
+The time bouncing for left to right.
+
 TODO: screenshot of screensaver
+I'm not too concerned about burn-in on the iPad's screen but I added a screensaver just to be on the safe side. Since the app is aware of its surroundings it will only trigger the screensaver if the lights are off for more than 15 minutes. The main interface can be brought back just by touching the screen anywhere.
 
 ## Contact
-
+I'd be more than happy to answer any questions about any of the above. You can leave an issue on the github [here](https://github.com/deanhet/home-dashboard/issues) or get me on Twitter [@deanhet](https://www.twitter.com/deanhet).
 

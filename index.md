@@ -91,7 +91,7 @@ Shows the upcoming meals for the week. List order rotates so the current day is 
 
 ![meals](assets/images/meals.PNG)
 
-It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
+Should have probably came up with a more healthy example for the screenshot, green things were eventually added! It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
 
 First attempt:
 
@@ -109,7 +109,7 @@ Shows the current weather (apparent and actual temperature), with summary and fo
 Making use of the great [Dark Sky](https://darksky.net) API, this component provides a lot of value for not a lot of effort. I opted to make the 'feels like' temperature more prominent than the actual temperature. It's no use being prepared for it to be 15 degrees outside when it actually feels a lot colder than that. The API also returns what kind of icon should be shown so that gets matched up with a custom icon font that I built using [fontello](http://fontello.com/).
 
 ### Find my iPhone
-Shows current battery percentage and location of phones with the last time the location was updated at. Has the ability to ping device too.
+Shows current battery percentage and location of our phones with the last time their location was updated at. It also has the ability to ping a device too.
 
 ![find-iphone](assets/images/find-iphone.PNG)
 

@@ -55,7 +55,7 @@ The core of this component is just a setInterval loop that runs every second. I 
 ### Spotify
 Shows the currently playing Artist and Song
 
-<video src="assets/videos/currently-playing.mp4" width="100%" loop muted autoplay height="100" preload></video>
+<video src="assets/videos/currently-playing.mp4" width="100%" loop controls muted height="100" preload></video>
 
 If a song is currently playing, a bar will slide up showing song info. I eventually added next/previous controls after giving the app some real-life use. The Spotify API doesn't currently offer a websocket/constant connection so the app pings a request every 15 seconds. It's not an ideal solution and I'd love to change away from this approach.
 
@@ -73,7 +73,7 @@ This component went through a lot of work before I settled on the final design. 
 
 Touching a room will switch the lights on/off in that room. You can also hold and drag over room to change the brightness. This uses a lot of [PanResponder](https://facebook.github.io/react-native/docs/panresponder.html) to handle the dragging.
 
-<video src="assets/videos/light-dimmer.mp4" width="100%" loop muted autoplay height="400" preload></video>
+<video src="assets/videos/light-dimmer.mp4" width="100%" controls loop muted height="400" preload></video>
 
 ### Bus tracker
 Shows when the next bus is at nearest stop with a scrollable panel of future buses. A warning icon will show if there are delays or problems on the route.

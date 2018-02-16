@@ -24,7 +24,7 @@ export class Spotify extends PureComponent {
         timing:  400,
         toValue: this.props.visible ? 60 : 0
       }).start()
-    }, 15000)
+    }, 25000)
   }
 
   componentWillUnmount() {

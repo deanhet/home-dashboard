@@ -45,7 +45,7 @@ export class Weather extends PureComponent {
         <View style={{ flexDirection: 'row', marginTop: -10 }}>
           <Text style={{ color: 'grey', fontSize: 20 }}>{weather.currently.summary}</Text>
         </View>
-        <Text style={[style.subtitle, { color: 'white' }]}>{weather.minutely.summary}</Text>
+        <Text style={[style.subtitle, { color: 'white' }]}>{weather.hourly.summary}</Text>
       </View>
     )
   }

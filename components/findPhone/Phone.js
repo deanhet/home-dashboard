@@ -36,6 +36,7 @@ export default class Phone extends PureComponent {
   }
   render() {
     const { phone, name, searchable, onSearch } = this.props
+    if(!phone.googleMaps.distance) return <View />
     return (
       <View style={style.container}>
         <View style={{marginTop: -10, alignItems: 'center'}}>

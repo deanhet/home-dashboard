@@ -46,7 +46,7 @@ export class HueSwitches extends PureComponent {
       <View style={{ paddingTop: 40 }}>
         <View style={style.container}>
           <Switch 
-            style={{ left: 50, top: 0, width: 150, height: 150 }} 
+            style={{ left: 0, top: 0, width: 150, height: 150 }} 
             roomLabel="Hallway" 
             dispatch={dispatch}
             light={lights.Hallway}
@@ -66,23 +66,37 @@ export class HueSwitches extends PureComponent {
             />
           </Switch>
           <Switch 
-            style={{ top: 0, left: 200, height: 150, width: 150 }} 
+            style={{ top: 150, left: 0, height: 150, width: 150 }} 
             roomLabel="Bedroom" 
             dispatch={dispatch}
             light={lights.Bedroom} 
           />
           <Switch 
-            style={{ top: 150, left: 150, height: 150, width: 200 }} 
-            roomLabel="Living room" 
-            dispatch={dispatch}
-            light={lights['Living room']}
-          />
-          <Switch 
-            style={{ left: 0, top: 250, height: 100, width: 175 }}
+            style={{ left: 150, top: 150, height: 150, width: 100 }}
             roomLabel="Kitchen" 
             dispatch={dispatch}
             light={lights.Kitchen} 
           />
+          <Switch 
+            style={{ top: 100, left: 250, height: 200, width: 100 }} 
+            roomLabel="Living room" 
+            dispatch={dispatch}
+            light={lights['Living room']}
+            labelPosition={{ top: 100, left: 25 }}
+          >
+            <View 
+              style={[
+                style.hallway, 
+                {left: 0, top: 0, height: 199, width: 100}
+              ]} 
+            />
+            <View 
+              style={[
+                style.hallway, 
+                {left: -100, top: 0, height: 50, width: 100}
+              ]} 
+            />
+          </Switch>
         </View>
       </View>
     )

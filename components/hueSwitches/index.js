@@ -46,54 +46,54 @@ export class HueSwitches extends PureComponent {
       <View style={{ paddingTop: 40 }}>
         <View style={style.container}>
           <Switch 
-            style={{ left: 0, top: 0, width: 150, height: 150 }} 
+            style={{ left: 75, top: 175, width: 75, height: 175 }} 
             roomLabel="Hallway" 
             dispatch={dispatch}
             light={lights.Hallway}
-            labelPosition={{ top: 110, left: 25 }}
+            labelPosition={{ top: 125, left: -25 }}
           >
             <View 
               style={[
                 style.hallway, 
-                {top: 0, height: 150, width: 50}
+                {top: 0, height: 150, width: 75}
               ]} 
             />
             <View 
               style={[
                 style.hallway, 
-                {left: 0, top: 100, height: 50, width: 150}
+                {left: -75, top: 100, height: 75, width: 150}
               ]} 
             />
           </Switch>
           <Switch 
-            style={{ top: 150, left: 0, height: 150, width: 150 }} 
+            style={{ top: 275, left: 150, height: 150, width: 200 }} 
             roomLabel="Bedroom" 
             dispatch={dispatch}
             light={lights.Bedroom} 
           />
           <Switch 
-            style={{ left: 150, top: 150, height: 150, width: 100 }}
+            style={{ top: 100, left: 150, height: 75, width: 200 }} 
             roomLabel="Kitchen" 
             dispatch={dispatch}
             light={lights.Kitchen} 
           />
           <Switch 
-            style={{ top: 100, left: 250, height: 200, width: 100 }} 
+            style={{ left: 75, top: 0, height: 100, width: 275 }}
             roomLabel="Living room" 
             dispatch={dispatch}
             light={lights['Living room']}
-            labelPosition={{ top: 100, left: 25 }}
+            labelPosition={{ top: 50, left: 75 }}
           >
             <View 
               style={[
                 style.hallway, 
-                {left: 0, top: 0, height: 199, width: 100}
+                {left: 0, top: 0, height: 100, width: 275}
               ]} 
             />
             <View 
               style={[
                 style.hallway, 
-                {left: -100, top: 0, height: 50, width: 100}
+                {left: 0, top: 100, height: 75, width: 75}
               ]} 
             />
           </Switch>

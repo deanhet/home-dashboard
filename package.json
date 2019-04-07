@@ -9,22 +9,23 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "react": "16.2.0",
+    "react": "16.8.3",
     "react-gateway": "^3.0.0",
-    "react-native": "0.53.3",
+    "react-native": "0.59.3",
     "react-native-calendar-events": "^1.4.3",
     "react-native-md5": "^1.0.0",
-    "react-native-vector-icons": "^4.5.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
+    "react-native-vector-icons": "^6.4.2",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
     "redux-persist": "^5.5.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "babel-jest": "22.1.0",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "22.1.1",
-    "react-test-renderer": "16.2.0"
+    "@babel/core": "^7.2.2",
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "^0.51.1",
+    "react-test-renderer": "^16.3.0-alpha.1"
   },
   "jest": {
     "preset": "react-native"

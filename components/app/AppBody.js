@@ -57,7 +57,8 @@ export class AppBody extends Component {
         </View>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Weather />
-          <FindPhone />
+          <View style={{flex: 1}} />
+          { /* <FindPhone /> */}
           <Bus />
         </View>
         <Spotify />

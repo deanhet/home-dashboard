@@ -53,3 +53,5 @@ buck-out/
 */fastlane/Preview.html
 */fastlane/screenshots
 
+keys.js
+home-dashboard-keys.js

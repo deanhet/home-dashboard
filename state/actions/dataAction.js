@@ -14,7 +14,7 @@ const data = async (url, config = {
     const response = await data.json()
     return response
   } catch (error) {
-    console.log(error)
+    console.log(error, url, config)
   }
 
 }

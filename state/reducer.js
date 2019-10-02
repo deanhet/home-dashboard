@@ -1,4 +1,4 @@
-import storage from 'redux-persist/lib/storage'
+import AsyncStorage from '@react-native-community/async-storage';
 import { persistCombineReducers } from 'redux-persist'
 
 import meals from './reducers/meals'
@@ -13,7 +13,7 @@ import icloud from './reducers/icloud'
 
 const config = {
   key: 'primary',
-  storage
+  storage: AsyncStorage
 }
 export default persistCombineReducers(config, {
   nav,

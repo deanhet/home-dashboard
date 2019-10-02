@@ -25,7 +25,7 @@ export default class Switch extends PureComponent {
     showBrightnessOverlay: false
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => {
         this.previousPercentage = this.state.switchPercentage

@@ -1,5 +1,5 @@
 import data from './dataAction'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import keys from '../../keys'
 
 export const UPDATE_PHONES = 'icloud/UPDATE_PHONES'

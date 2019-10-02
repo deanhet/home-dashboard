@@ -18,7 +18,7 @@ export default class Clock extends PureComponent {
     })
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.timeoutClock = setInterval(() => {
       const time = new Date()
       this.setState({

@@ -1,5 +1,5 @@
 import fetch from './fetch'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const data = async (url, config = {
   method: 'GET'

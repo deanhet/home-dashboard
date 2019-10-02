@@ -20,7 +20,7 @@ export class HueSwitches extends PureComponent {
     // 1 min
   }
   
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (!nextProps.lights['Living room'].on) {
       if (!this.timeoutRunning) {
         this.timeoutRunning = true

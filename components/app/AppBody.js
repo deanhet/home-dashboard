@@ -1,16 +1,10 @@
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity
-} from 'react-native'
-import { connect } from 'react-redux'
+import React, {Component} from 'react'
+import {StyleSheet, View, Dimensions, TouchableOpacity} from 'react-native'
+import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import { GatewayDest } from 'react-gateway'
-import Dimensions from 'Dimensions'
+import {GatewayDest} from 'react-gateway'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-
-import { toggleModal } from '../../state/actions/nav'
+import {toggleModal} from '../../state/actions/nav'
 
 import HueSwitches from '../hueSwitches'
 import HueTemps from '../hueTemps'

@@ -13,7 +13,7 @@ export class Bus extends PureComponent {
     disruptions: PropTypes.bool
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.checkBus = setInterval(() => {
       this.props.dispatch(updateBusTimes())
     }, 60000)

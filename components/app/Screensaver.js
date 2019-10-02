@@ -1,6 +1,5 @@
-import React, { PureComponent } from 'react'
+import React, { Dimensions, PureComponent } from 'react'
 import { Animated, StyleSheet, View, TouchableWithoutFeedback } from 'react-native'
-import Dimensions from 'Dimensions'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Clock from '../clock'

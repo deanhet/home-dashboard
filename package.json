@@ -1,31 +1,37 @@
 {
-  "name": "homeDashboard",
+  "name": "homedashboard",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
     "test": "jest",
-    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.2",
     "isomorphic-fetch": "^2.2.1",
-    "react": "16.8.3",
+    "react": "16.9.0",
     "react-gateway": "^3.0.0",
-    "react-native": "0.59.3",
+    "react-native": "0.61.1",
     "react-native-calendar-events": "^1.4.3",
     "react-native-md5": "^1.0.0",
     "react-native-vector-icons": "^6.4.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "redux-persist": "^5.5.0",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "^0.51.1",
-    "react-test-renderer": "^16.3.0-alpha.1"
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "react-test-renderer": "16.9.0"
   },
   "jest": {
     "preset": "react-native"

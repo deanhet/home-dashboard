@@ -5086,10 +5086,9 @@ react-devtools-core@^3.6.3:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
-react-gateway@^3.0.0:
+"react-gateway@https://github.com/bartolkaruza/react-gateway.git":
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-gateway/-/react-gateway-3.0.0.tgz#95872a3cbadca8e6dc631d8276389c7ef39777e5"
-  integrity sha512-Do06hWBwND22j05Kvqs4XtRA1cAxc6oFQ9UK9QxMeboWa/9DAUArioqvS4HsmenWQc5Yl3ziHDlhj9xorYY52Q==
+  resolved "https://github.com/bartolkaruza/react-gateway.git#55277e72ca7e20d54b7cb561c82c3edb9debacc1"
   dependencies:
     prop-types "^15.5.0"
     react-prop-types "^0.4.0"

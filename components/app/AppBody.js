@@ -55,7 +55,7 @@ export class AppBody extends Component {
           { /* <FindPhone /> */}
           <Bus />
         </View>
-        {/* <Spotify /> */}
+        <Spotify />
         {screensaver && <Screensaver />}
         {modalOpen &&
         <View style={styles.modal}>

@@ -16,7 +16,7 @@ export default class AddMeals extends PureComponent {
     mealInput: null
   }
 
-  keyExtractor = (item, index) => index
+  keyExtractor = (item, index) => String(index)
 
   onSubmit = () => {
     this.props.addMeal(this.state.mealInput)

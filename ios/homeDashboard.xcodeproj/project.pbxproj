@@ -66,8 +66,8 @@
 		23F3E48F27F7FE6A612B23DE /* Pods-homedashboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homedashboardTests.debug.xcconfig"; path = "Target Support Files/Pods-homedashboardTests/Pods-homedashboardTests.debug.xcconfig"; sourceTree = "<group>"; };
 		24931D8DD3A00E8889D35A27 /* libPods-homedashboardTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-homedashboardTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0B523F081644B3A654A113 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* homedashboard-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homedashboard-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* homedashboard-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "homedashboard-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* homeDashboard-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "homeDashboard-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* homeDashboard-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "homeDashboard-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324888C2304E4ED9A481F850 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4EC853084F9F4AA8BA3C1523 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		50939281243BE37742CB783C /* libPods-homedashboard-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-homedashboard-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,8 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Home Dash.app */,
-				2D02E47B1E0B4A5D006451C7 /* homedashboard-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* homedashboard-tvOSTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* homeDashboard-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* homeDashboard-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* homedashboard */ = {
+		13B07F861A680F5B00A75B9A /* homeDashboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "homedashboard" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "homeDashboard" */;
 			buildPhases = (
 				51CF9CC5A855E6109CCB295D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -235,14 +235,14 @@
 			);
 			dependencies = (
 			);
-			name = homedashboard;
+			name = homeDashboard;
 			productName = homedashboard;
 			productReference = 13B07F961A680F5B00A75B9A /* Home Dash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* homedashboard-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* homeDashboard-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homedashboard-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homeDashboard-tvOS" */;
 			buildPhases = (
 				DE763E34CC7B7DEE2F4C7325 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -255,14 +255,14 @@
 			);
 			dependencies = (
 			);
-			name = "homedashboard-tvOS";
+			name = "homeDashboard-tvOS";
 			productName = "homedashboard-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* homedashboard-tvOS.app */;
+			productReference = 2D02E47B1E0B4A5D006451C7 /* homeDashboard-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* homedashboard-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* homeDashboard-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homedashboard-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homeDashboard-tvOSTests" */;
 			buildPhases = (
 				88E1BD3E8ED7E743ECC67DDD /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -274,9 +274,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "homedashboard-tvOSTests";
+			name = "homeDashboard-tvOSTests";
 			productName = "homedashboard-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* homedashboard-tvOSTests.xctest */;
+			productReference = 2D02E4901E0B4A5D006451C7 /* homeDashboard-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +302,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "homedashboard" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "homeDashboard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -316,9 +316,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* homedashboard */,
-				2D02E47A1E0B4A5D006451C7 /* homedashboard-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* homedashboard-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* homeDashboard */,
+				2D02E47A1E0B4A5D006451C7 /* homeDashboard-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* homeDashboard-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -585,7 +585,7 @@
 /* Begin PBXTargetDependency section */
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* homedashboard-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* homeDashboard-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -608,7 +608,7 @@
 			baseConfigurationReference = 1BD2B10C16A3B2CD0846F8C6 /* Pods-homedashboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = KN8JNCK7QV;
 				INFOPLIST_FILE = homedashboard/Info.plist;
@@ -630,7 +630,7 @@
 			baseConfigurationReference = EAF2684BB5BB7E928FAF0F4C /* Pods-homedashboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = KN8JNCK7QV;
 				INFOPLIST_FILE = homedashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -724,7 +724,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.homedashboard-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homedashboard-tvOS.app/homedashboard-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homeDashboard-tvOS.app/homeDashboard-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
@@ -751,7 +751,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.homedashboard-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homedashboard-tvOS.app/homedashboard-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/homeDashboard-tvOS.app/homeDashboard-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -858,7 +858,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "homedashboard" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "homeDashboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -867,7 +867,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homedashboard-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homeDashboard-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -876,7 +876,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homedashboard-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "homeDashboard-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -885,7 +885,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "homedashboard" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "homeDashboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

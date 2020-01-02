@@ -15,7 +15,7 @@ export default class HueTemps extends PureComponent {
       const sensorStates = await sensors()
       this.setState({
         hallwayTemp: sensorStates['8'].state.temperature / 100,
-        kitchenTemp: sensorStates['21'].state.temperature / 100
+        kitchenTemp: sensorStates['38'].state.temperature / 100
       })
     }, 300000)
     // 5 minutes

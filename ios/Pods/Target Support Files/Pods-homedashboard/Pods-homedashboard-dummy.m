@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_homedashboard : NSObject
+@interface PodsDummy_Pods_homeDashboard : NSObject
 @end
-@implementation PodsDummy_Pods_homedashboard
+@implementation PodsDummy_Pods_homeDashboard
 @end

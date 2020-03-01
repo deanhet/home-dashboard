@@ -1,7 +1,7 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'homedashboard' do
+target 'homeDashboard' do
   # Pods for homedashboard
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -40,18 +40,13 @@ target 'homedashboard' do
 
   pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
-  target 'homedashboardTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   use_native_modules!
 end
 
-target 'homedashboard-tvOS' do
+target 'homeDashboard-tvOS' do
   # Pods for homedashboard-tvOS
 
-  target 'homedashboard-tvOSTests' do
+  target 'homeDashboard-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

@@ -616,7 +616,7 @@
 			baseConfigurationReference = 89DFDDEF01ADCFE42306844A /* Pods-homeDashboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = PSR25A39GR;
 				INFOPLIST_FILE = homedashboard/Info.plist;
@@ -626,7 +626,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.deanhet.homedash;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deanhet.home-dashboard";
 				PRODUCT_NAME = "Home Dash";
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -638,7 +638,7 @@
 			baseConfigurationReference = 67729E6696345300B146E944 /* Pods-homeDashboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = PSR25A39GR;
 				INFOPLIST_FILE = homedashboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -647,7 +647,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.deanhet.homedash;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.deanhet.home-dashboard";
 				PRODUCT_NAME = "Home Dash";
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";

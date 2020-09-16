@@ -21,7 +21,7 @@ export class HueSwitches extends PureComponent {
   }
   
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (!nextProps.lights['Living room'].on) {
+    if (!nextProps.lights['Kitchen'].on) {
       if (!this.timeoutRunning) {
         this.timeoutRunning = true
         this.screensaver = setTimeout(() => {
@@ -79,9 +79,9 @@ export class HueSwitches extends PureComponent {
           />
           <Switch 
             style={{ left: 75, top: 0, height: 100, width: 275 }}
-            roomLabel="Living room" 
+            roomLabel="Living Room" 
             dispatch={dispatch}
-            light={lights['Living room']}
+            light={lights['Living Room']}
             labelPosition={{ top: 50, left: 75 }}
           >
             <View 

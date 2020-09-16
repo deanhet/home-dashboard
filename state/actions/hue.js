@@ -6,7 +6,7 @@ export const POLL_LIGHTS = 'hue/POLL_LIGHTS'
 export const CHANGE_BRIGHTNESS = 'hue/CHANGE_BRIGHTNESS'
 
 const roomEnum = {
-  'Living room': 1,
+  'Living Room': 6,
   Bedroom:       2,
   Hallway:       3,
   Kitchen:       4

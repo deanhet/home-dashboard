@@ -2,7 +2,7 @@ import * as actions from '../../state/actions/hue'
 
 const initialState = { 
   lights: {
-    'Living room': {on: false, brightness: 0},
+    'Living Room': {on: false, brightness: 0},
     Hallway:       {on: false, brightness: 0},
     Kitchen:       {on: false, brightness: 0},
     Bedroom:       {on: false, brightness: 0}

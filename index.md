@@ -87,11 +87,11 @@ I requested a key during a weekend so while waiting for a response I 'borrowed' 
 They're both a good way to feel like Mr Robot and both worth exploring further in a future blog post. I developed against the keys and quickly swapped in my own when I got a reply first thing on the Monday (credit to the council for the quick reply!).
 
 ### Meal Plan
-Shows the upcoming meals for the week. List order rotates so the current day is always at the top.
+Shows the upcoming meals for the week. Editing this list saves meals locally to the device and also updates a remote list so we can update it/sync on other devices. The remote data is driven by [Firebase's realtime database](https://firebase.google.com/docs/reference/rest/database). The list order rotates so the current day is always at the top.
 
 ![meals](assets/images/meals.PNG)
 
-Should have probably came up with a more healthy example for the screenshot, green things were eventually added! It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
+I should have probably came up with a more healthy example for the screenshot, green things were eventually added! It was surprisingly tricky to settle on an interface for this. This component has the ability to add and remove new meals and assign them to days. It got a lot easier once I decoupled the concepts and started treating them as two separate things.
 
 First attempt:
 

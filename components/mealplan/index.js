@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList } from 'react-native'
 import { Gateway } from 'react-gateway'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { addMeal, deleteMeal, selectMealForDay, rotateDays } from '../../state/actions/meals'
+import { addMeal, deleteMeal, selectMealForDay, rotateDays, setMeals } from '../../state/actions/meals'
 import MealDay from './MealDay'
 import AddMeals from './AddMeals'
 
@@ -25,6 +25,9 @@ export class MealPlan extends Component {
       this.props.dispatch(rotateDays())
     }, 3600000)
     // 1 hour
+    if(!this.props.meals.length){
+      this.props.dispatch(setMeals())
+    }
   }
 
   componentWillUnmount() {

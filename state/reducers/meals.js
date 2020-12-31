@@ -15,7 +15,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-
+    case actions.SET_MEALS:
+      return {
+        ...state,
+        meals: action.data
+      }
     case actions.ROTATE_MEAL_DAYS:
       const dayIndex = state.mealDays.findIndex((mealDay) => mealDay.day === action.data)
       return {

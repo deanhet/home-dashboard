@@ -17,6 +17,7 @@ import TV from '../tv'
 import Bus from '../bus'
 import FindPhone from '../findPhone/'
 import Screensaver from './Screensaver'
+import Timers from '../timers'
 
 export class AppBody extends Component {
 
@@ -36,7 +37,7 @@ export class AppBody extends Component {
       <View style={styles.container}>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <Clock />
-          <View style={{ flex: 1 }} />
+          <Timers />
           <HueTemps />
         </View>
         <View style={{ flex: 3, flexDirection: 'row' }}>

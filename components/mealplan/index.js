@@ -25,7 +25,7 @@ export class MealPlan extends Component {
       this.props.dispatch(rotateDays())
     }, 3600000)
     // 1 hour
-    if(!this.props.meals.length){
+    if(!this.props.meals?.length){
       this.props.dispatch(setMeals())
     }
   }

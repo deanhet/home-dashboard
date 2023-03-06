@@ -6,16 +6,17 @@ import { sensors } from '../../state/actions/hue'
 export default class HueTemps extends PureComponent {
 
   state = {
-    hallwayTemp: 0,
-    kitchenTemp: 0
+    bottomStairs: 0,
+    topStairs: 0
   }
 
   componentDidMount() {
     this.interval = setInterval(async () => {
       const sensorStates = await sensors()
+      console.log(sensorStates['95'].state)
       this.setState({
-        hallwayTemp: sensorStates['8'].state.temperature / 100,
-        kitchenTemp: sensorStates['38'].state.temperature / 100
+        bottomStairs: sensorStates['94'].state.temperature / 100,
+        topStairs: sensorStates['97'].state.temperature / 100
       })
     }, 300000)
     // 5 minutes
@@ -40,8 +41,8 @@ export default class HueTemps extends PureComponent {
   }
 
   render() {
-    const { hallwayTemp, kitchenTemp } = this.state
-    const averageTemp = ((hallwayTemp + kitchenTemp) / 2).toFixed(2)
+    const { bottomStairs, topStairs } = this.state
+    const averageTemp = ((bottomStairs + topStairs) / 2).toFixed(2)
     return (
       <View style={{ alignItems: 'flex-end', padding: 15 }}>
         <View style={style.row}>
@@ -52,17 +53,17 @@ export default class HueTemps extends PureComponent {
           </View>
           <View style={{ paddingLeft: 10 }}>
             <View style={style.row}>
-              <Icon name={this.thermometerIcon(hallwayTemp)} style={style.icon} />
+              <Icon name={this.thermometerIcon(bottomStairs)} style={style.icon} />
               <View>
-                <Text style={style.title}>{hallwayTemp}℃</Text>
-                <Text style={style.subtitle}>Hallway</Text>
+                <Text style={style.title}>{bottomStairs}℃</Text>
+                <Text style={style.subtitle}>Downstairs</Text>
               </View>
             </View>
             <View style={style.row}>
-              <Icon name={this.thermometerIcon(kitchenTemp)} style={style.icon} />
+              <Icon name={this.thermometerIcon(topStairs)} style={style.icon} />
               <View>
-                <Text style={style.title}>{kitchenTemp}℃</Text>
-                <Text style={style.subtitle}>Kitchen</Text>
+                <Text style={style.title}>{topStairs}℃</Text>
+                <Text style={style.subtitle}>Upstairs</Text>
               </View>
             </View>
           </View>

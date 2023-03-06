@@ -19,20 +19,16 @@ export class HueSwitches extends PureComponent {
     }, 60000)
     // 1 min
   }
+
   
   UNSAFE_componentWillReceiveProps(nextProps) {
-    if (!nextProps.lights['Kitchen'].on) {
-      if (!this.timeoutRunning) {
-        this.timeoutRunning = true
-        this.screensaver = setTimeout(() => {
-          this.props.dispatch(showScreenSaver())
-          this.timeoutRunning = false
-        }, 900000)
-        // 15 mins
-      }
-    } else {
-      this.timeoutRunning = false
-      clearTimeout(this.screensaver)
+    if (!this.timeoutRunning) {
+      this.timeoutRunning = true
+      this.screensaver = setTimeout(() => {
+        this.props.dispatch(showScreenSaver())
+        this.timeoutRunning = false
+      }, 900000)
+      // 15 mins
     }
   }
 
@@ -42,61 +38,36 @@ export class HueSwitches extends PureComponent {
 
   render() {
     const { lights, dispatch } = this.props
+    console.log({lights})
     return (
       <View style={{ paddingTop: 40 }}>
         <View style={style.container}>
           <Switch 
-            style={{ left: 75, top: 175, width: 75, height: 175 }} 
-            roomLabel="Hallway" 
-            dispatch={dispatch}
-            light={lights.Hallway}
-            labelPosition={{ top: 125, left: -25 }}
-          >
-            <View 
-              style={[
-                style.hallway, 
-                {top: 0, height: 150, width: 75}
-              ]} 
-            />
-            <View 
-              style={[
-                style.hallway, 
-                {left: -75, top: 100, height: 75, width: 150}
-              ]} 
-            />
-          </Switch>
+          style={{ top: 0, right: 0, height: 200, width: 170 }} 
+          roomLabel="Bedroom" 
+          dispatch={dispatch}
+          light={lights.Bedroom} 
+        />
+        <Switch 
+          style={{ top: 0, left: 0, height: 200, width: 170 }} 
+          roomLabel="Halls + Stairs" 
+          displayName="Hall"
+          dispatch={dispatch}
+          light={lights["Halls + Stairs"]} 
+        />
           <Switch 
-            style={{ top: 275, left: 150, height: 125, width: 200 }} 
-            roomLabel="Bedroom" 
+            style={{ top: 210, left: 0, height: 200, width: 170 }} 
+            roomLabel="Living room" 
             dispatch={dispatch}
-            light={lights.Bedroom} 
+            light={lights["Living room"]} 
           />
           <Switch 
-            style={{ top: 100, left: 150, height: 75, width: 202 }} 
-            roomLabel="Kitchen" 
+            style={{ top: 210, right:0, height: 200, width: 170 }} 
+            roomLabel="Living room lamps" 
+            displayName="Lamps"
             dispatch={dispatch}
-            light={lights.Kitchen} 
+            light={lights["Living room lamps"]} 
           />
-          <Switch 
-            style={{ left: 75, top: 0, height: 100, width: 275 }}
-            roomLabel="Living Room" 
-            dispatch={dispatch}
-            light={lights['Living Room']}
-            labelPosition={{ top: 50, left: 75 }}
-          >
-            <View 
-              style={[
-                style.hallway, 
-                {left: 0, top: 0, height: 100, width: 275}
-              ]} 
-            />
-            <View 
-              style={[
-                style.hallway, 
-                {left: 0, top: 100, height: 75, width: 75}
-              ]} 
-            />
-          </Switch>
         </View>
       </View>
     )
@@ -119,9 +90,5 @@ const style = StyleSheet.create({
     alignSelf:      'stretch', 
     height:         350, 
     width:          350
-  },
-  hallway: {
-    backgroundColor: 'grey',
-    position:        'absolute'
   }
 })

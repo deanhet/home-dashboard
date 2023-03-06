@@ -6,6 +6,7 @@ import { lightSwitch, lightBrightness } from '../../state/actions/hue'
 export default class Switch extends PureComponent {
 
   static propTypes = {
+    displayName:   PropTypes.string,
     roomLabel:     PropTypes.string,
     labelPosition: PropTypes.object,
     dispatch:      PropTypes.func,
@@ -71,7 +72,7 @@ export default class Switch extends PureComponent {
   }
 
   render() {
-    const { roomLabel, labelPosition, light } = this.props
+    const { displayName, roomLabel, labelPosition, light } = this.props
     const { showBrightnessOverlay } = this.state
     const { width, height } = this.props.style
     return (
@@ -97,7 +98,7 @@ export default class Switch extends PureComponent {
           <Text 
             style={[styles.text, labelPosition && [{ position: 'absolute' }, labelPosition]]}
           >
-            {roomLabel}
+            {displayName || roomLabel}
           </Text>
           {showBrightnessOverlay && 
             <Text style={styles.brightnessPercentageText}>

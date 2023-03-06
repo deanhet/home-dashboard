@@ -2,9 +2,9 @@ import * as actions from '../../state/actions/hue'
 
 const initialState = { 
   lights: {
-    'Living Room': {on: false, brightness: 0},
-    Hallway:       {on: false, brightness: 0},
-    Kitchen:       {on: false, brightness: 0},
+    'Living room': {on: false, brightness: 0},
+    'Living room lamps':       {on: false, brightness: 0},
+    'Halls + Stairs':       {on: false, brightness: 0},
     Bedroom:       {on: false, brightness: 0}
   }
   // TODO: Save temps here too

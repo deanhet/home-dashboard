@@ -15,9 +15,9 @@ export function updateBusTimes() {
     const apiKey = keys.bus.apiKey
     const key = md5.hex_md5(apiKey + dateString)
     const response = await data(
-      `http://ws.mybustracker.co.uk/?module=json&key=${key}&function=getBusTimes&random=${randomNumber}&nb=6&stopId1=36238396`
+      `http://ws.mybustracker.co.uk/?module=json&key=${key}&function=getBusTimes&random=${randomNumber}&nb=6&stopId1=58232462`
     )
-    const busTimes = response.busTimes.find((service) => service.mnemoService === '27')
+    const busTimes = response.busTimes.find((service) => service.mnemoService === '44')
     const { serviceDisruption, busStopDisruption } = busTimes
     const disruptions = serviceDisruption || busStopDisruption 
     dispatch({type: UPDATE_TIMES, data: {times: busTimes.timeDatas, disruptions}})

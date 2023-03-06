@@ -38,7 +38,7 @@ export class Bus extends PureComponent {
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>  
           <View style={{ alignItems: 'center' }}>
             <Icon name="directions-bus" style={{ fontSize: 50, color: 'grey' }} />
-            <Text style={style.busNumber}>27</Text>
+            <Text style={style.busNumber}>44</Text>
             {disruptions && <Icon name="warning" style={style.warningIcon} />}
           </View>
           <View style={{ justifyContent: 'center', paddingLeft: 10 }}>

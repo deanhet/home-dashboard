@@ -30,11 +30,12 @@ export class TV extends PureComponent {
         style={style.container}
       >
         {shows.map((show) =>
-          <View style={style.eventRow} key={show.airdate + show.indexerid}>
+          <View style={style.eventRow} key={show.id}>
             <Icon name="tv" style={{fontSize: 40, color: 'grey'}} />
             <View style={style.textContainer}>
-              <Text style={style.eventTitle}>{show.show_name}</Text>
-              <Text style={{ color: 'white' }}>{new Date(show.airdate)
+            <Text style={style.eventTitle}>{show.series.title}</Text>
+              <Text style={[style.eventTitle, {fontSize: 16, fontWeight: 'normal'}]}>{show.title}</Text>
+              <Text style={{ color: 'white' }}>{new Date(show.airDate)
                 .toLocaleDateString('en-GB', { 
                   weekday: 'short', 
                   year:    'numeric', 

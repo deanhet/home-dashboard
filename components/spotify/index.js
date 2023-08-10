@@ -22,6 +22,7 @@ export class Spotify extends PureComponent {
       this.props.dispatch(currentlyPlaying())
       Animated.timing(this.barHeight, {
         timing:  400,
+        useNativeDriver: false,
         toValue: this.props.visible ? 60 : 0
       }).start()
     }, 25000)

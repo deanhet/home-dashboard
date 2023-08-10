@@ -5,8 +5,11 @@ export const UPDATE_SHOWS = 'tv/UPDATE_SHOWS'
 
 export function updateTV() {
   return async dispatch => {
-    const request = await data(`${keys.tv.ip}/api/${keys.tv.key}/?cmd=future&type=today|soon|later&paused=1`)
-    const { later, soon, today } = request.data
-    dispatch({ type: UPDATE_SHOWS, data: [... today, ... soon, ... later] })
+    const request = await data(`${keys.tv.ip}/api/v3/calendar?end=${new Date(new Date().getTime() + (86400000 * 14)).toISOString().split('T')[0]}&includeSeries=true`, {
+      headers: {
+        'X-Api-Key': keys.tv.key
+      }
+    })
+    dispatch({ type: UPDATE_SHOWS, data: request })
   }
 }

@@ -25,6 +25,7 @@ export class Screensaver extends PureComponent {
   cycleAnimation = () => {
     Animated.timing(this.animatedValue, {
       duration: 50000,
+      useNativeDriver: false,
       toValue:  this.animatedValue._value === this.screenWidth ? 0 : this.screenWidth
     }).start(() => {
       this.cycleAnimation()

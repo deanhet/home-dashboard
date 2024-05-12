@@ -13,10 +13,9 @@ export default class HueTemps extends PureComponent {
   componentDidMount() {
     this.interval = setInterval(async () => {
       const sensorStates = await sensors()
-      console.log(sensorStates['95'].state)
       this.setState({
-        bottomStairs: sensorStates['94'].state.temperature / 100,
-        topStairs: sensorStates['97'].state.temperature / 100
+        bottomStairs: sensorStates['4'].state.temperature / 100,
+        topStairs: sensorStates['7'].state.temperature / 100
       })
     }, 300000)
     // 5 minutes

@@ -6,10 +6,10 @@ export const POLL_LIGHTS = 'hue/POLL_LIGHTS'
 export const CHANGE_BRIGHTNESS = 'hue/CHANGE_BRIGHTNESS'
 
 const roomEnum = {
-  'Living room': 8,
-  Bedroom:       2,
-  'Halls + Stairs': 5,
-  'Living room lamps': 7
+  'Living room big light': 85,
+  Bedroom:       83,
+  'Hallway': 82,
+  'Living room lamps': 84
 }
 
 const username = keys.hue.username

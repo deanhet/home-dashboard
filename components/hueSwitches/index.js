@@ -50,16 +50,17 @@ export class HueSwitches extends PureComponent {
         />
         <Switch 
           style={{ top: 0, left: 0, height: 200, width: 170 }} 
-          roomLabel="Halls + Stairs" 
+          roomLabel="Hallway" 
           displayName="Hall"
           dispatch={dispatch}
-          light={lights["Halls + Stairs"]} 
+          light={lights["Hallway"]} 
         />
           <Switch 
             style={{ top: 210, left: 0, height: 200, width: 170 }} 
-            roomLabel="Living room" 
+            roomLabel="Living room big light" 
+            displayName="Living Room"
             dispatch={dispatch}
-            light={lights["Living room"]} 
+            light={lights["Living room big light"]} 
           />
           <Switch 
             style={{ top: 210, right:0, height: 200, width: 170 }} 

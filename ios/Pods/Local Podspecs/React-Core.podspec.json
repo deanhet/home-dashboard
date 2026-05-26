@@ -1,6 +1,6 @@
 {
   "name": "React-Core",
-  "version": "0.72.3",
+  "version": "0.72.9",
   "summary": "The core of React Native.",
   "homepage": "https://reactnative.dev/",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/facebook/react-native.git",
-    "tag": "v0.72.3"
+    "tag": "v0.72.9"
   },
   "resource_bundles": {
     "AccessibilityResources": [
@@ -35,39 +35,19 @@
     "RCT-Folly": [
       "2021.07.22.00"
     ],
-    "React-cxxreact": [
-
-    ],
-    "React-perflogger": [
-
-    ],
-    "React-jsi": [
-
-    ],
-    "React-jsiexecutor": [
-
-    ],
-    "React-utils": [
-
-    ],
+    "React-cxxreact": [],
+    "React-perflogger": [],
+    "React-jsi": [],
+    "React-jsiexecutor": [],
+    "React-utils": [],
     "SocketRocket": [
       "0.6.1"
     ],
-    "React-runtimeexecutor": [
-
-    ],
-    "Yoga": [
-
-    ],
-    "glog": [
-
-    ],
-    "React-hermes": [
-
-    ],
-    "hermes-engine": [
-
-    ]
+    "React-runtimeexecutor": [],
+    "Yoga": [],
+    "glog": [],
+    "React-hermes": [],
+    "hermes-engine": []
   },
   "subspecs": [
     {
@@ -92,13 +72,13 @@
       ],
       "dependencies": {
         "React-Core/Default": [
-          "0.72.3"
+          "0.72.9"
         ],
         "React-Core/RCTWebSocket": [
-          "0.72.3"
+          "0.72.9"
         ],
         "React-jsinspector": [
-          "0.72.3"
+          "0.72.9"
         ]
       }
     },
@@ -107,7 +87,7 @@
       "source_files": "Libraries/WebSocket/*.{h,m}",
       "dependencies": {
         "React-Core/Default": [
-          "0.72.3"
+          "0.72.9"
         ]
       }
     },
@@ -115,99 +95,77 @@
       "name": "CoreModulesHeaders",
       "source_files": "React/CoreModules/**/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTActionSheetHeaders",
       "source_files": "Libraries/ActionSheetIOS/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTAnimationHeaders",
       "source_files": "Libraries/NativeAnimation/{Drivers/*,Nodes/*,*}.{h}",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTBlobHeaders",
       "source_files": "Libraries/Blob/{RCTBlobManager,RCTFileReaderModule}.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTImageHeaders",
       "source_files": "Libraries/Image/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTLinkingHeaders",
       "source_files": "Libraries/LinkingIOS/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTNetworkHeaders",
       "source_files": "Libraries/Network/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTPushNotificationHeaders",
       "source_files": "Libraries/PushNotificationIOS/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTSettingsHeaders",
       "source_files": "Libraries/Settings/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTTextHeaders",
       "source_files": "Libraries/Text/**/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     },
     {
       "name": "RCTVibrationHeaders",
       "source_files": "Libraries/Vibration/*.h",
       "dependencies": {
-        "React-Core/Default": [
-
-        ]
+        "React-Core/Default": []
       }
     }
   ]

@@ -13,8 +13,6 @@
   },
   "source_files": "*.{h,m}",
   "dependencies": {
-    "React": [
-
-    ]
+    "React": []
   }
 }

@@ -54,7 +54,7 @@ export class AppBody extends Component {
           <Weather />
           <View style={{flex: 1}} />
           { /* <FindPhone /> */}
-          <Bus />
+          {/* API deprecated <Bus /> */}
         </View>
         <Spotify />
         {screensaver && <Screensaver />}
